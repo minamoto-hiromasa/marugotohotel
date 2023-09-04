@@ -1,0 +1,32 @@
+/**
+* Importing by selector filtering example
+* https://github.com/maoberlehner/node-sass-magic-importer/tree/master/packages/node-sass-magic-importer#selector-filtering
+ */
+// @import '{ .util-color-red, .util-color-blue } from utils/_example-1.scss';
+
+// @import '{ .util-with-weird-name as .util--normalized } from utils/_example-2.scss';
+
+/**
+* Importing by glob example
+* https://github.com/maoberlehner/node-sass-magic-importer/tree/master/packages/node-sass-magic-importer#globbing
+ */
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+@import 'global/variables';
+@import 'utils/mixin';
+@import 'global/preset';
+@import 'global/elements';
+@import 'global/button';
+@import 'global/typography';
+@import 'global/scaffolding';
+@import 'global/structure';
+@import 'components/orbit';
+@import 'components/timetable';
+@import 'components/expand-content';
+@import 'partials/sidemenu';
+@import 'partials/mobile-header';
+@import 'partials/footer';
+@import 'partials/cta';
+@import 'pages/index';
+@import 'pages/stories';
+@import 'partials/section-campagin';

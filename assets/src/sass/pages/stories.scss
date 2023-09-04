@@ -1,0 +1,184 @@
+.page-stories {
+  .orbit-figure {
+    height: 60vw;
+  }
+  article {
+    p {
+      text-indent: 1em;
+    }
+    .title {
+      width: 100%;
+      margin: 57px 0 0;
+      padding-bottom: 5px;
+      border-bottom: 1px solid $color-border-gray;
+    }
+    .sub-title {
+      img {
+        &:nth-child(1) {
+          margin: 10px 0;
+          display: block;
+        }
+        &:nth-child(2) {
+          display: block;
+          margin-bottom: 4px;
+          margin-left: auto;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  #section-concept {
+    p {
+      text-indent: 0;
+    }
+    .title {
+      border-bottom-width: 0;
+      padding-bottom: 0;
+      margin-bottom: 36px;
+    }
+  }
+  section {
+    &:not(#section-concept) {
+      max-width: 744px;
+      .orbit {
+        margin-top: 24px;
+      }
+    }
+  }
+  @include breakpoint(medium) {
+    #section-concept {
+      .title {
+        img {
+          width: 323px;
+        }
+      }
+    }
+    [class^=article-] {
+      padding-left: 68px;
+      b {
+        margin-bottom: 19px;
+        display: block;
+      }
+      .title {
+        width: 100%;
+        margin-top: 76px;
+        padding-bottom: 2px;  
+      }
+      .cell-sub-title {
+        margin-top: 12px;
+        width: 260px;
+      }
+      .cell-content {
+        font-size: 12.7px;
+        margin-top: 41px;
+        width: calc(100% - 260px);
+      }
+      .orbit {
+        margin-top: 38px;
+        margin-left: 55px;
+      }
+    }
+  }
+  .article-sawai {
+    .title {
+      img {
+        width: 238px;
+      }
+    }
+    .sub-title {
+      img {
+        &:nth-child(1) {
+          width: 131px;
+        }
+        &:nth-child(2) {
+          width: 180px;
+        }
+      }
+    }
+    @include breakpoint(medium) {
+      .title {
+        img {
+          width: 311px;
+        }
+      }
+      .sub-title {
+        img {
+          &:nth-child(1) {
+            width: 142px;
+          }
+          &:nth-child(2) {
+            margin: 30px auto 0 0;
+          }
+        }
+      }
+    }
+  }
+  .article-okutama {
+    .title {
+      img {
+        width: 285px;
+      }
+    }
+    .sub-title {
+      img {
+        &:nth-child(1) {
+          width: 168px;
+        }
+        &:nth-child(2) {
+          width: 180px;
+        }
+      }
+    }
+    @include breakpoint(medium) {
+      .title {
+        img {
+          width: 374px;
+        }
+      }
+      .sub-title {
+        img {
+          &:nth-child(1) {
+            width: 194px;
+          }
+          &:nth-child(2) {
+            margin: 30px auto 0 0;
+          }
+        }
+      }
+    }
+  }
+  .article-kori {
+    .title {
+      img {
+        width: 221px;
+      }
+    }
+    .sub-title {
+      img {
+        &:nth-child(1) {
+          width: 128px;
+        }
+        &:nth-child(2) {
+          width: 180px;
+        }
+      }
+    }
+    @include breakpoint(medium) {
+      .title {
+        img {
+          width: 294px;
+        }
+      }
+      .sub-title {
+        img {
+          &:nth-child(1) {
+            width: 140px;
+          }
+          &:nth-child(2) {
+            margin: 30px auto 0 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+$gutter: 1rem;
+
+.sticky-wrap {
+  position: relative;
+}
+
+.body-content {
+  padding-bottom: 73px;
+  @include breakpoint(small only) {
+    #content-wrap {
+      margin-top: 80px;
+    }
+  }
+  @include breakpoint(medium) {
+    display: flex;
+    .side-nav {
+      display: block;
+      width: 20%;
+    }
+    .content-wrap {
+      width: 80%;
+    }
+  }
+}

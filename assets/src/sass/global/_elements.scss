@@ -1,0 +1,52 @@
+body {
+  min-width: 1240px;
+  @include breakpoint(small only) {
+    min-width: initial;
+  }
+  &.loaded {
+    .catch-phrase {
+      opacity: 1!important;
+    }
+  }
+}
+br {
+  &.for-medium {
+    display: none;
+    @include breakpoint(medium) {
+      display: inline;
+    }
+  }
+  &.for-small {
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+}
+img {
+  &.image-exchange {
+    &.medium {
+      display: block;
+    }
+    &.small {
+      display: none;
+    }
+  }
+}
+dl {
+  line-height: 1.9;
+}
+@include breakpoint(small only) {
+  img {
+    &.image-exchange {
+      &.medium {
+        display: none;
+      }
+      &.small {
+        display: block;
+      }
+      &.expand {
+        width: 100%;
+      }
+    }
+  }
+}

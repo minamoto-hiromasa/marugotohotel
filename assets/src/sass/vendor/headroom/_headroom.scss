@@ -1,0 +1,59 @@
+.headroom {
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+
+  a {
+    &[title="Reservation"] {
+      .sub-title {
+        &:before {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &.headroom--top {
+    transform: translateY(100%);
+  }
+
+  &.headroom--not-top {
+    border-bottom-width: 0 !important;
+  }
+
+  &.headroom--footer {
+    top: 0;
+    transform: translateY(0) !important;
+    position: absolute !important;
+  }
+
+  &.headroom--pinned {
+    transform: translateY(100%);
+  }
+
+  &.headroom--unpinned {
+    transform: translateY(0%);
+
+    a {
+      &[title="Reservation"] {
+        .sub-title {
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &.headroom--bottom {
+    a {
+      &[title="Reservation"] {
+        .sub-title {
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+}

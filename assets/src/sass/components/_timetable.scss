@@ -1,0 +1,42 @@
+.timetable {
+  padding-left: 84px;
+  dl {
+    margin: 0;
+    small {
+      display: inline-block;
+      font-size: 10px;
+      position: relative;
+      top: -1px;
+    }
+    dt {
+      font-weight: normal;
+      display: inline-block;
+      vertical-align: top;
+      line-height: 2;
+      margin: 0;
+      &.offsetted {
+        padding-left: 13px;
+      }
+    }
+    dd {
+      vertical-align: top;
+      line-height: 2;
+      display: inline-block;
+    }
+  }
+  @include breakpoint(small only) {
+    padding-left: 14px;
+    dl {
+      dt {
+        &.dot-list {
+          &:before {
+            content: '・';
+          }
+        }
+        &.offsetted {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

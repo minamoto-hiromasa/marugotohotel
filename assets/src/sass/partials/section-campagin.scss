@@ -1,0 +1,23 @@
+#section-campagin {
+  margin-bottom: 96px;
+  article {
+    max-width: 686px;
+  }
+  .indent-content {
+    margin-left: 8px;
+  }
+  @include breakpoint(medium) {
+    article {
+      .orbit-figure {
+        height: 400px;
+      }
+    }
+    .indent-content {
+      margin-left: 29px;
+    }
+    .orbit-indent {
+      margin-left: 29px;
+      margin-bottom: 32px;
+    }
+  }
+}

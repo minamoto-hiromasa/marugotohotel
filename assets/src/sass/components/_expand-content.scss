@@ -1,0 +1,9 @@
+.expand-content {
+  overflow: hidden;
+  transition: height 0.5s linear;
+}
+.expand-button {
+  margin-top: 8px;
+  width: 65px;
+  cursor: pointer;
+}

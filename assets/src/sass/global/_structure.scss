@@ -1,0 +1,158 @@
+article {
+  padding-left: 32px;
+  &.article-indent {
+    padding-left: $section-indent-medium * 2;
+  }
+  p {
+    line-height: 1.9;
+    margin-bottom: 28px;
+    &.subleading {
+      margin-top: -5px;
+      margin-bottom: 55px;
+    }
+  }
+  .title {
+    margin: 48px 0 28px 2px;
+    img {
+      display: block;
+    }
+    &.title-indent {
+      position: relative;
+      padding: 5px 0 18px 0;
+
+      &:before {
+        content: "";
+        width: 0;
+        height: 51px;
+        border-left: 1px solid $color-border-gray;
+        position: absolute;
+        top: -5px;
+        left: -$section-indent-medium;
+
+      }
+    }
+  }
+  @include breakpoint(small only) {
+    padding: 0 22px;
+    &.article-indent {
+      padding-left: 22px;
+      margin-left: 0;
+    }
+    .title {
+      margin: 58px 0 30px;
+      &.title-indent {
+        padding: 3px 0 3px 12px;
+        &:before {
+          height: 26px;
+          top: 2px;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+.description {
+  padding-top: 23px;
+  border-top: 1px solid $color-border-gray;
+  margin-top: 44px;
+  max-width: 863px;
+  h3 {
+    img {
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+  small {
+    float: left;
+    line-height: 1.8;
+  }
+  p {
+    line-height: 2.1;
+    font-size: 11px;
+    margin-left: 262px;
+    margin-bottom: 11px;
+    &:first-of-type {
+      padding-top: 25px;
+    }
+  }
+  a {
+    &.external {
+      margin-left: 58px;
+      padding-right: 13px;
+      width: 620px;
+      font-size: 9px;
+      &:before,
+      &:after {
+        width: 5px;
+        height: 5px;
+        top: 5px;
+      }
+      &:before {
+        right: 2px;
+      }
+      &:after {
+        right: 7px;
+      }
+    }
+    + a {
+      margin-top: 9px;
+    }
+  }
+  .copy {
+    margin-bottom: 23px;
+  }
+  .image {
+    margin-left: 58px;
+    img {
+      display: block;
+      max-width: 620px;
+    }
+  }
+  @include breakpoint(small only) {
+    margin-left: -8px;
+    padding-top: 18px;
+    margin-top: 17px;
+    h3 {
+      margin-left: 8px;
+      margin-bottom: 0;
+      img {
+        margin-bottom: 5px;
+      }
+    }
+    small {
+      display: block;
+      float: none;
+      margin-bottom: 12px;
+    }
+    p {
+      margin-left: 14px;
+      &:last-of-type:not(:first-of-type) {
+        margin-bottom: 0;
+      }
+    }
+    a {
+      &.external {
+        width: auto;
+        font-size: 12px;
+        margin-left: 0;
+        padding-right: 17px;
+        &:before,
+        &:after {
+          width: 7px;
+          height: 7px;
+          top: 6px;
+        }
+        &:before {
+          right: 2px;
+        }
+        &:after {
+          right: 8px;
+        }
+      }
+    }
+    .copy {
+      margin-left: 8px;
+      margin-bottom: 23px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.color-sale {
+  color: $color-sale;
+}
+
+.brackets {
+  &:before {
+    content: "【";
+  }
+  &:after {
+    content: "】";
+  }
+  @include breakpoint(medium) {
+    &:before {
+      content: none;
+    }
+    &:after {
+      content: "：";
+    }
+  }
+}

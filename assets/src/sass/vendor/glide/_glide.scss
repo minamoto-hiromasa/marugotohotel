@@ -1,0 +1,155 @@
+.glide__slides {
+  position: relative;
+  height: 100vh;
+  width: 100vw !important;
+  transition: none !important;
+
+  &--reverse .glide__slide {
+
+    &,
+    &__img {
+      right: initial;
+      left: 0;
+    }
+  }
+}
+
+.glide__slide {
+  overflow: hidden;
+  width: 0 !important;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  // transform: scale(1.04);
+  transition: 1.6s transform ease-in-out, 0s width ease-out 1.7s;
+
+  &--active {
+    z-index: 1;
+    width: 100vw !important;
+    transform: none;
+    transition: 1.4s width ease-out;
+  }
+
+  &__img {
+    position: absolute;
+    right: 0;
+    display: block;
+    height: 100%;
+    width: 100vw;
+    object-fit: cover;
+    max-width: initial;
+  }
+}
+
+.glide__arrow {
+  $arrow-size: 23px;
+  font-size: 0;
+  border-width: 0;
+  border: none;
+  width: 10%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+
+  &:before {
+    content: "";
+    display: block;
+    width: $arrow-size;
+    height: $arrow-size;
+    border-top: 1px solid var(--color-white);
+    border-left: 1px solid var(--color-white);
+  }
+
+  &--left {
+    &:before {
+      transform: translateX($arrow-size * 0.4) rotate(-45deg);
+    }
+  }
+
+  &--right {
+    &:before {
+      transform: translateX($arrow-size * -0.4) rotate(135deg);
+    }
+  }
+
+  @include media(desktop) {
+    $arrow-size: 18px;
+
+    .glide__arrow {
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:before {
+        width: $arrow-size;
+        height: $arrow-size;
+        border-color: var(--white);
+        border-width: 1px;
+      }
+
+      &--left {
+        margin-left: 0;
+
+        &:before {
+          transform: rotate(-45deg);
+        }
+      }
+
+      &--right {
+        margin-right: 0;
+
+        &:before {
+          transform: rotate(135deg);
+        }
+      }
+    }
+  }
+}
+
+.gallery-slider {
+  margin: rem-calc(29) calc(var(--content-padding) * -1);
+
+  >figure {
+    display: none !important;
+  }
+
+  .glide--carousel {
+    position: relative;
+    width: 100%;
+  }
+
+  .glide__slides {
+    width: 100% !important;
+    height: rem-calc(280);
+  }
+
+  .glide__slide {
+    &--active {
+      width: 100% !important;
+    }
+
+    &__img {
+      width: 100%;
+    }
+  }
+
+  @include media(tablet) {
+    margin-right: 0;
+    margin-left: 0;
+
+    .glide__slides {
+      height: rem-calc(375);
+    }
+
+    .glide__slide {
+      &__img {
+        width: rem-calc(590) !important;
+      }
+    }
+  }
+}

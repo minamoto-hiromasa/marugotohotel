@@ -1,0 +1,108 @@
+.orbit {
+  button {
+    &[class^=orbit] {
+      &:before {
+        display: block;
+        content: '';
+        width: 19px;
+        height: 19px;
+        border-right: 1px solid $white;
+        border-bottom: 1px solid $white;
+      }
+    }
+    &.orbit-previous {
+      &:before {
+        transform: rotate(135deg)
+      }
+    }
+    &.orbit-next {
+      &:before {
+        transform: rotate(-45deg)
+      }
+    }
+  }
+  nav.orbit-bullets {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin: 0 0 16px;
+    button {
+      width: 5px;
+      height: 5px;
+      margin: 2px;
+    }
+  }
+  .orbit-figure {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vw;
+  }
+
+  // キービジュアル用
+  &.hero {
+    .orbit-figure {
+      height: 0;
+      padding-bottom: 128%;
+    }
+  }
+
+  // メインコンテンツ用
+  &.main {
+    margin-left: -22px;
+    margin-right: -22px;
+    .orbit-figure {
+      height: 60vw;
+    }
+    .orbit-indent {
+      margin-bottom: 32px;
+    }
+  }
+  @include breakpoint(medium) {
+    &.hero {
+      .orbit-figure {
+        height: 56vw;
+        padding-bottom: 0;
+      }
+    }
+    &.main {
+      margin-left: 0;
+      margin-right: 0;
+      .orbit-figure {
+        height: 400px;
+      }
+      .orbit-indent {
+        margin-left: 29px;
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
+#section-marugoto {
+  .orbit {
+    margin-left: 8px;
+    width: calc(100% - 8px);
+  }
+  .orbit-figure {
+    height: 60vw;
+  }
+  @include breakpoint(medium) {
+    .orbit {
+      margin-left: 58px;
+      width: 620px;
+    }
+    .orbit-figure {
+      height: 410px;
+    }
+  }
+}
+#section-stories {
+  .orbit-figure {
+    height: 60vw;
+  }
+  @include breakpoint(medium) {
+    .orbit-figure {
+      height: 410px;
+    }
+  }
+}

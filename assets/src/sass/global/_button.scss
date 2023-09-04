@@ -1,0 +1,36 @@
+@debug($white);
+a, button {
+  outline: none;
+  color: $black;
+  &:hover {
+    color: $black;
+  }
+  &:focus {
+    color: $black;
+  }
+}
+a {
+  display: block;
+  text-align: right;
+  &.external {
+    position: relative;
+    padding-right: 18px;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      transform: rotate(45deg);
+      border-top: 1px solid black;
+      border-right: 1px solid black;
+      bottom: 7px;
+    }
+    &:before {
+      right: 2px;
+    }
+    &:after {
+      right: 9px;
+    }
+  }
+}

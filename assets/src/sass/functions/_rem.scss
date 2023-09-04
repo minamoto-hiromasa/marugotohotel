@@ -1,0 +1,7 @@
+@function rem-calc($px, $base: 14.5) {
+  $value: $px;
+
+  $value: ($px / $base) * 1rem;
+
+  @return $value;
+}
