@@ -24,6 +24,7 @@ class setupGallerySlider {
 		arrowContainer.appendChild(arrowRight);
 
 		this.glideEl.classList.add('glide-' + Date.now());
+		this.glideEl.classList.add('glide');
 		trackElm.classList.add('glide__track');
 		trackElm.setAttribute('data-glide-el', 'track');
 		ulElm.classList.add('glide__slides');

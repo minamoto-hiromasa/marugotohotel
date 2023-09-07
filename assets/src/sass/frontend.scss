@@ -14,6 +14,8 @@
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 @import 'global/variables';
 @import 'utils/mixin';
+@import "vendor/bootstrap/bootstrap_override";
+@import "vendor/glide/glide";
 @import 'global/preset';
 @import 'global/elements';
 @import 'global/button';

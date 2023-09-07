@@ -1,9 +1,21 @@
 #section-concept {
-  .title img {
-    width: 235px;
-  }
-  .orbit {
-    margin: 0 -16px;
+  .title {
+    h2 {
+      font-size: 30px;
+      margin-bottom: 0;
+      padding-bottom: 18px;
+      line-height: 1.5;
+    }
+    h3 {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: normal;
+      padding-bottom: 18px;
+      line-height: 1.5;
+    }
+    p {
+      font-size: 18px;
+    }
   }
   .catch-phrase {
     position: absolute;
@@ -15,9 +27,6 @@
   @include breakpoint(medium) {
     .title {
       margin: 48px 0 41px;
-      img {
-        width: 490px;
-      }
     }
     .orbit {
       margin: 0;
@@ -61,10 +70,10 @@
   }
 }
 #section-marugoto {
-  .title {
-    img {
-      width: 364px;
-    }
+  h3 {
+    font-weight: normal;
+    margin: 0;
+    font-size: 17px;
   }
   .description {
     &.part1 {

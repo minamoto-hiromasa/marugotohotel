@@ -1,5 +1,5 @@
 article {
-  padding-left: 32px;
+  padding-left: 38px;
   &.article-indent {
     padding-left: $section-indent-medium * 2;
   }
@@ -7,18 +7,20 @@ article {
     line-height: 1.9;
     margin-bottom: 28px;
     &.subleading {
+      margin-left: 29px;
       margin-top: -5px;
       margin-bottom: 55px;
     }
   }
   .title {
+    font-size: 29px;
     margin: 48px 0 28px 2px;
     img {
       display: block;
     }
     &.title-indent {
       position: relative;
-      padding: 5px 0 18px 0;
+      padding: 5px 0 18px 24px;
 
       &:before {
         content: "";
@@ -27,7 +29,7 @@ article {
         border-left: 1px solid $color-border-gray;
         position: absolute;
         top: -5px;
-        left: -$section-indent-medium;
+        left: 0;
 
       }
     }
@@ -52,6 +54,7 @@ article {
   }
 }
 .description {
+  margin-left: 29px;
   padding-top: 23px;
   border-top: 1px solid $color-border-gray;
   margin-top: 44px;
@@ -71,35 +74,42 @@ article {
     font-size: 11px;
     margin-left: 262px;
     margin-bottom: 11px;
+    width: 416px;
     &:first-of-type {
       padding-top: 25px;
     }
   }
   a {
-    &.external {
-      margin-left: 58px;
-      padding-right: 13px;
-      width: 620px;
-      font-size: 9px;
-      &:before,
-      &:after {
-        width: 5px;
-        height: 5px;
-        top: 5px;
-      }
-      &:before {
-        right: 2px;
-      }
-      &:after {
-        right: 7px;
-      }
+    margin-left: 58px;
+    padding-right: 13px;
+    width: 620px;
+    font-size: 9px;
+    position: relative;
+    padding-right: 18px;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      transform: rotate(45deg);
+      border-top: 1px solid black;
+      border-right: 1px solid black;
+      bottom: 7px;
+    }
+    &:before,
+    &:after {
+      width: 5px;
+      height: 5px;
+      top: 4px;
+    }
+    &:before {
+      right: 2px;
+    }
+    &:after {
+      right: 7px;
     }
     + a {
       margin-top: 9px;
     }
-  }
-  .copy {
-    margin-bottom: 23px;
   }
   .image {
     margin-left: 58px;
@@ -126,33 +136,31 @@ article {
     }
     p {
       margin-left: 14px;
+      width: auto;
       &:last-of-type:not(:first-of-type) {
         margin-bottom: 0;
       }
     }
     a {
-      &.external {
-        width: auto;
-        font-size: 12px;
-        margin-left: 0;
-        padding-right: 17px;
-        &:before,
-        &:after {
-          width: 7px;
-          height: 7px;
-          top: 6px;
-        }
-        &:before {
-          right: 2px;
-        }
-        &:after {
-          right: 8px;
-        }
+      width: auto;
+      font-size: 12px;
+      margin-left: 0;
+      padding-right: 17px;
+      &:before,
+      &:after {
+        width: 7px;
+        height: 7px;
+        top: 6px;
+      }
+      &:before {
+        right: 2px;
+      }
+      &:after {
+        right: 8px;
       }
     }
     .copy {
       margin-left: 8px;
-      margin-bottom: 23px;
     }
   }
 }
