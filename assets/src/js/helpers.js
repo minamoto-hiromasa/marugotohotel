@@ -69,7 +69,7 @@ function observeNodes(callback) {
 	});
 }
 function isQueryMatch() {
-	const mql = window.matchMedia('screen and (min-width: 1240px)');
+	const mql = window.matchMedia('screen and (min-width: 640px)');
 	return mql.matches;
 }
 export { setupGallerySlider, observeNodes, isQueryMatch };

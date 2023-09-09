@@ -32,10 +32,13 @@
     width: 34px;
     height: 34px;
     padding: 4px;
+    border-width: 0;
+    background: none;
   }
   .burger {
+    position: absolute;
     display: block;
-    width: 100%;
+    width: calc(100% - 8px);
     height: 0;
     border-bottom: 2px solid $black;
     transition: width 0.3s linear;

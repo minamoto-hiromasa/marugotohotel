@@ -86,13 +86,25 @@ aside.side-nav {
     }
     .fake-link {
       padding-top: 0;
+      margin-top: 5px;
       font-size: 0;
+      span {
+        &:after {
+          content: none;
+        }
+      }
     }
     .nav-inner {
       position: relative;
       a, div {
         font-size: 10px;
         padding: 6px 0;
+      }
+      span {
+        &:before,
+        &:after {
+          content: none;
+        }
       }
       .tag-new-wrap {
         display: flex;
@@ -105,6 +117,9 @@ aside.side-nav {
           &:after {
             content: none;
           }
+        }
+        &:hover {
+          text-decoration: none;
         }
       }
       .tag-new {

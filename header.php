@@ -19,13 +19,51 @@
     // } else {
     //     do_action( 'wp_body_open' );
     // }
+
+    $campaignPageSlug = "campaign";
+    function isPageAnchor($url) {
+      $keyword = 'http';
+      if (strpos($url, $keyword) === false) {
+        return true;
+      }
+      return false;
+    }
+
+    // グローバルメニューHTML作成
     $menuID = "main-menu";
     $mainMenu = wp_get_nav_menu_items($menuID);
     $navHtml = '<div id="main-menu">';
     foreach($mainMenu as $item){
-      $navHtml .= '<a class="' . str_replace("#", "menu-", $item -> url) . '" href="' . $item -> url . '"><span>' . $item -> title . '</span></a>';
+      $mainUrlPrefix = (is_page($campaignPageSlug) && isPageAnchor($item -> url)) ? home_url( '/' ) : "";
+      $navHtml .=
+        '<a class="' . str_replace("#", "menu-", $item -> url) . '"
+        href="' . $mainUrlPrefix . $item -> url . '"><span>' . $item -> title . '</span></a>';
     }
     $navHtml .= '</div>';
+
+    // キャンペーンメニューHTML作成
+    $campaignMenuID = "campaign-menu";
+    $campaginMenu = wp_get_nav_menu_items($campaignMenuID);
+    $campaignPageUrl = get_permalink( get_page_by_path($campaignPageSlug));
+    // 最初のキャンペーンメニューは特殊なスタイル
+    $campaignFirstMenu = array_shift($campaginMenu);
+    $campaignUrlPrefix = (!is_page($campaignPageSlug) && isPageAnchor($campaignFirstMenu -> url)) ? $campaignPageUrl : "";
+    $campaginNavHtml = '<div class="nav-inner">';
+    $campaginNavHtml .= '<a href="' . $campaignUrlPrefix . $campaignFirstMenu -> url . '" class="tag-new-wrap">';
+    $campaginNavHtml .= '<span class="tag-new-inner">';
+    $campaginNavHtml .= '<span class="tag-new">NEW!</span>';
+    $campaginNavHtml .= '<b>' . $campaignFirstMenu -> title . '</b>';
+    $campaginNavHtml .= '</span>';
+    $campaginNavHtml .= '</a>';
+
+    // ２つ目以降のキャンペーンメニュー
+    foreach($campaginMenu as $item){
+      $campaignUrlPrefix = (!is_page($campaignPageSlug) && isPageAnchor($item -> url)) ? $campaignPageUrl : "";
+      $campaginNavHtml .=
+        '<a class="' . $item -> classes[0] . '"
+        href="' . $campaignUrlPrefix . $item -> url . '"><span>' . $item -> title . '</span></a>';
+    }
+    $campaginNavHtml .= '</div>';
 ?>
   <div class="wrapper">
     <div id="sticky-wrap" class="sticky-wrap">
@@ -41,21 +79,18 @@
             <img class="logo" src="<?php echo get_template_directory_uri()?>/assets/public/images/logo.svg"
               alt="沿線まるごと HOTEL PROJECT" srcset="">
             <nav>
-              <div class="nav-inner">
-                <a href="#body-content" class="tag-new-wrap">
-                  <span class="tag-new-inner">
-                    <span class="tag-new">NEW!</span>
-                    <b>期間限定ツアー</b>
-                  </span>
-                </a>
-                <a href="#mobility-service" class="has-dash" href="">駅発着！<b>モビリティレンタル</b></a>
-                <a href="#guide-package" class="has-dash">土日限定！<b>ガイドツアー</b></a>
-                <a href="#cycle-guide-a">ツアーA</a>
-                <a href="#cycle-guide-b">ツアーB</a>
-                <a href="#cycle-guide-c">ツアーC</a>
-              </div>
-              <a class="fake-link" href="#section-limited-tour"><span></span></a>
-              <?php echo $navHtml; ?>
+              <?php
+                // キャンペーンページの表示設定があればメニューを表示する
+                $campaignID = get_id_by_slug('campaign');
+                if (get_field('campaign-available', $campaignID)) {
+                  echo $campaginNavHtml;
+                }
+              ?>
+              <a class="fake-link"><span></span></a>
+              <?php
+                // グローバルメニュー
+                echo $navHtml;
+              ?>
               <a href="https://www.facebook.com/ensenmarugoto" class="facebook" target="_blank">
                 <img src="<?php echo get_template_directory_uri()?>/assets/public/images/logo-facebook.svg"
                   alt="facebook" />

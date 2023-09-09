@@ -38,6 +38,64 @@ export const controlerPath = {
 					).mount();
 				});
 			}
+
+			function getOffset(el) {
+				const rect = el.getBoundingClientRect();
+				return {
+					left: rect.left + window.scrollX,
+					top: rect.top + window.scrollY,
+				};
+			}
+
+			const toggleMenu =
+				document.getElementsByClassName('toggle-menu')[0];
+			const sideNav = document.getElementsByClassName('side-nav')[0];
+			const sideNavLinks = sideNav.getElementsByTagName('a');
+			const burger = document.getElementsByClassName('burger')[0];
+			toggleMenu.addEventListener('click', function () {
+				sideNav.classList.toggle('show');
+				burger.classList.toggle('close');
+			});
+			for (let i = 0; i < sideNavLinks.length; i++) {
+				sideNavLinks[i].addEventListener('click', function (e) {
+					e.preventDefault();
+					sideNav.classList.remove('show');
+					burger.classList.remove('close');
+					console.log('indexOf: ', sideNavLinks[i].attributes.href.value.indexOf('#'));
+					if (
+						sideNavLinks[i].attributes.href.value.indexOf('#') === 0
+					) {
+						const targetElem = document.getElementById(
+							sideNavLinks[i].attributes.href.value.replace(
+								'#',
+								''
+							)
+						);
+						console.log(targetElem);
+						gsap.to(window, {
+							duration: 1,
+							scrollTo: { y: getOffset(targetElem).top },
+							ease: 'power2',
+						});
+					} else {
+						location.href = sideNavLinks[i].attributes.href.value;
+					}
+				});
+			}
+			// for (let i = 0; i < sideNavLinks.length; i++) {
+			// 	sideNavLinks.addEventListener('click', function (e) {
+			// 		e.preventDefault();
+			// 		if (location.pathname === '/') {
+			// 			gsap.to(window, {
+			// 				duration: 1,
+			// 				scrollTo: '#primary',
+			// 				ease: 'power2',
+			// 			});
+			// 		} else {
+			// 			location.href = '/#primary';
+			// 		}
+			// 	});
+			// }
 		},
 	},
 	home: {
@@ -49,7 +107,6 @@ export const controlerPath = {
 				return false;
 			}
 			const menuItems = mainMenu.getElementsByTagName('a');
-			console.log(menuItems);
 			// Stick title on desktop only
 			if (menuItems.length > 0 && isQueryMatch()) {
 				for (let i = 0; i < menuItems.length; i++) {
@@ -60,7 +117,7 @@ export const controlerPath = {
 					if (!triggerTarget) {
 						console.info(
 							'対象のコンテンツが見つかりません メニュー: ',
-							menuItem.className
+							menuItem.className.replace('menu-', '')
 						);
 					}
 					new ScrollMagic.Scene({
