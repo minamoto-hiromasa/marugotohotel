@@ -2,28 +2,43 @@
   .orbit-figure {
     height: 60vw;
   }
+  .grid-x {
+    // gutenbergは勝手に要素の中にDIVタグを生成するため、それを見越した対応
+    > div {
+      display: flex;
+      flex-direction: column;
+    }
+    &.right {
+      > div {
+        justify-content: flex-end;
+      }
+    }
+    @include breakpoint(medium) {
+      > div {
+        flex-direction: row;
+      }
+    }
+  }
   article {
     p {
       text-indent: 1em;
     }
     .title {
-      width: 100%;
+      font-size: 32px;
       margin: 57px 0 0;
       padding-bottom: 5px;
       border-bottom: 1px solid $color-border-gray;
     }
     .sub-title {
+      strong {
+        font-weight: normal;
+        font-size: 17px;
+      }
       img {
-        &:nth-child(1) {
-          margin: 10px 0;
-          display: block;
-        }
-        &:nth-child(2) {
-          display: block;
-          margin-bottom: 4px;
-          margin-left: auto;
-          margin-right: 10px;
-        }
+        display: block;
+        margin-bottom: 4px;
+        margin-left: auto;
+        margin-right: 10px;
       }
     }
   }
@@ -46,14 +61,12 @@
     }
   }
   @include breakpoint(medium) {
-    #section-concept {
-      .title {
-        img {
-          width: 323px;
-        }
+    #reading-content {
+      .glide {
+        margin-left: 55px;
       }
     }
-    [class^=article-] {
+    article {
       padding-left: 68px;
       b {
         margin-bottom: 19px;
@@ -62,7 +75,7 @@
       .title {
         width: 100%;
         margin-top: 76px;
-        padding-bottom: 2px;  
+        padding-bottom: 2px;
       }
       .cell-sub-title {
         margin-top: 12px;
@@ -80,11 +93,6 @@
     }
   }
   .article-sawai {
-    .title {
-      img {
-        width: 238px;
-      }
-    }
     .sub-title {
       img {
         &:nth-child(1) {
@@ -96,19 +104,9 @@
       }
     }
     @include breakpoint(medium) {
-      .title {
-        img {
-          width: 311px;
-        }
-      }
       .sub-title {
         img {
-          &:nth-child(1) {
-            width: 142px;
-          }
-          &:nth-child(2) {
             margin: 30px auto 0 0;
-          }
         }
       }
     }

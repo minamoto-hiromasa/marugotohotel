@@ -21,6 +21,9 @@
     // }
 
     $campaignPageSlug = "campaign";
+    $storiesPageSlug = "stories-of-ome-line";
+    $storiesClass = (is_page($storiesPageSlug)) ? "page-stories" : "";
+
     function isPageAnchor($url) {
       $keyword = 'http';
       if (strpos($url, $keyword) === false) {
@@ -65,7 +68,7 @@
     }
     $campaginNavHtml .= '</div>';
 ?>
-  <div class="wrapper">
+  <div class="wrapper <?php echo $storiesClass?>">
     <div id="sticky-wrap" class="sticky-wrap">
       <div id="body-content" class="body-content">
         <header class="mobile-header">
@@ -109,3 +112,4 @@
             $content = apply_filters('the_content', $page->post_content);
             echo $content;
           ?>
+          <div id="reading-content">

@@ -1,9 +1,24 @@
 .expand-content {
   overflow: hidden;
-  transition: height 0.5s linear;
+  transition: height 0.5s cubic-bezier(0, 0, 0.2, 1);
 }
 .expand-button {
-  margin-top: 8px;
-  width: 65px;
-  cursor: pointer;
+  a {
+    @extend .font-gothic;
+    font-size: 11px;
+    margin-top: 8px;
+    position: relative;
+    padding-right: 18px;
+    font-weight: bold;
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      width: 9px;
+      height: 9px;
+      border-left: 2px solid $black;
+      border-bottom: 2px solid $black;
+      transform: rotate(-45deg);
+    }
+  }
 }

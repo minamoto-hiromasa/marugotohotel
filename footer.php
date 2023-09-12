@@ -1,4 +1,5 @@
 <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
+</div><!-- #reading-content -->
 </div><!-- #content-wrap -->
 </div><!-- .body-content -->
 </div><!-- .sticky-wrap -->

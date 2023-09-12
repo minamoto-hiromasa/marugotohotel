@@ -5,7 +5,7 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 gsap.registerPlugin(ScrollToPlugin);
 
-import { isQueryMatch, setupGallerySlider } from './helpers.js';
+import { isQueryMatch, setupExpandContent, setupGallerySlider } from './helpers.js';
 
 const slideAnimeDuration = 4500;
 const glideOptions = {
@@ -22,8 +22,8 @@ export const controlerPath = {
 			// Slider setup
 			const galleries = document.getElementsByClassName('gallery');
 
-			for (let i = 0; i < galleries.length; i++) {
-				const gallery = galleries[i];
+			for (const element of galleries) {
+				const gallery = element;
 				let isArrow = true;
 				if (gallery.id === 'gallery-1' || gallery.id === 'gallery-2') {
 					isArrow = false;
@@ -56,46 +56,33 @@ export const controlerPath = {
 				sideNav.classList.toggle('show');
 				burger.classList.toggle('close');
 			});
-			for (let i = 0; i < sideNavLinks.length; i++) {
-				sideNavLinks[i].addEventListener('click', function (e) {
+			for (const element of sideNavLinks) {
+				element.addEventListener('click', function (e) {
 					e.preventDefault();
 					sideNav.classList.remove('show');
 					burger.classList.remove('close');
-					console.log('indexOf: ', sideNavLinks[i].attributes.href.value.indexOf('#'));
-					if (
-						sideNavLinks[i].attributes.href.value.indexOf('#') === 0
-					) {
+					if (element.attributes.href.value.indexOf('#') === 0) {
 						const targetElem = document.getElementById(
-							sideNavLinks[i].attributes.href.value.replace(
-								'#',
-								''
-							)
+							element.attributes.href.value.replace('#', '')
 						);
-						console.log(targetElem);
 						gsap.to(window, {
 							duration: 1,
 							scrollTo: { y: getOffset(targetElem).top },
 							ease: 'power2',
 						});
 					} else {
-						location.href = sideNavLinks[i].attributes.href.value;
+						location.href = element.attributes.href.value;
 					}
 				});
 			}
-			// for (let i = 0; i < sideNavLinks.length; i++) {
-			// 	sideNavLinks.addEventListener('click', function (e) {
-			// 		e.preventDefault();
-			// 		if (location.pathname === '/') {
-			// 			gsap.to(window, {
-			// 				duration: 1,
-			// 				scrollTo: '#primary',
-			// 				ease: 'power2',
-			// 			});
-			// 		} else {
-			// 			location.href = '/#primary';
-			// 		}
-			// 	});
-			// }
+
+			// Expandable content setup
+			const targetElems =
+				document.getElementsByClassName('expand-content');
+			for (const target of targetElems) {
+				const expander = new setupExpandContent(target, { lines: 5 });
+				expander.init();
+			}
 		},
 	},
 	home: {
@@ -109,8 +96,8 @@ export const controlerPath = {
 			const menuItems = mainMenu.getElementsByTagName('a');
 			// Stick title on desktop only
 			if (menuItems.length > 0 && isQueryMatch()) {
-				for (let i = 0; i < menuItems.length; i++) {
-					const menuItem = menuItems[i];
+				for (const element of menuItems) {
+					const menuItem = element;
 					const triggerTarget = document.getElementById(
 						menuItem.className.replace('menu-', '')
 					);
@@ -125,8 +112,8 @@ export const controlerPath = {
 						triggerHook: 0.5,
 					})
 						.on('enter leave', function () {
-							for (let j = 0; j < menuItems.length; j++) {
-								menuItems[j].classList.remove('im-here');
+							for (const item of menuItems) {
+								item.classList.remove('im-here');
 							}
 							menuItem.classList.add('im-here');
 						})

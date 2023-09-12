@@ -72,4 +72,38 @@ function isQueryMatch() {
 	const mql = window.matchMedia('screen and (min-width: 640px)');
 	return mql.matches;
 }
-export { setupGallerySlider, observeNodes, isQueryMatch };
+
+class setupExpandContent {
+	constructor(elm, options) {
+		this.target = elm;
+		this.lines = options.lines;
+	}
+	init() {
+		if (!this.target.getElementsByTagName('p')) {
+			console.error('文章が設定されていません');
+			return false;
+		}
+		const paragraph = this.target.getElementsByTagName('p')[0];
+		const fontSize = window.getComputedStyle(paragraph).fontSize.replace('px', '');
+		const lineHeight = fontSize * 1.9;
+		const openParagraphHeight = this.target.clientHeight;
+		const article = this.target.closest('article');
+		if (!article) {
+			console.error('折りたたみコンテンツが正しく設定されていません');
+			return false;
+		}
+		const closedParagraphHeight = Math.ceil(lineHeight * this.lines);
+		this.target.style.height = closedParagraphHeight + 'px';
+
+		// Close
+		const expandButton = article.getElementsByClassName('expand-button')[0];
+		expandButton.addEventListener('click', (e) => {
+			console.log('clicked', this);
+			e.preventDefault();
+			this.target.style.height = openParagraphHeight + 'px';
+			e.target.style.display = 'none';
+		});
+	}
+}
+
+export { setupGallerySlider, observeNodes, isQueryMatch, setupExpandContent };
