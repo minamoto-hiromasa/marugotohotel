@@ -83,6 +83,25 @@ export const controlerPath = {
 				const expander = new setupExpandContent(target, { lines: 5 });
 				expander.init();
 			}
+
+			// CTA
+			const controller = new ScrollMagic.Controller();
+			function triggerHandlerCta(e) {
+				const ctaElem = document.getElementById('cta-reservation');
+				if (e.type === 'enter') {
+					ctaElem.classList.add('show');
+					sideNav.classList.add('up');
+				} else {
+					ctaElem.classList.remove('show');
+					sideNav.classList.remove('up');
+				}
+			}
+			new ScrollMagic.Scene({
+				triggerElement: '#trigger-cta',
+				triggerHook: 0.5,
+			})
+				.on('enter leave', triggerHandlerCta)
+				.addTo(controller);
 		},
 	},
 	home: {

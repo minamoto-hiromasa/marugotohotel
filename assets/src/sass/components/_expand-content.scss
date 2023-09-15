@@ -5,6 +5,7 @@
 .expand-button {
   a {
     @extend .font-gothic;
+    text-decoration: none;
     font-size: 11px;
     margin-top: 8px;
     position: relative;

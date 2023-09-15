@@ -2,23 +2,6 @@
   .orbit-figure {
     height: 60vw;
   }
-  .grid-x {
-    // gutenbergは勝手に要素の中にDIVタグを生成するため、それを見越した対応
-    > div {
-      display: flex;
-      flex-direction: column;
-    }
-    &.right {
-      > div {
-        justify-content: flex-end;
-      }
-    }
-    @include breakpoint(medium) {
-      > div {
-        flex-direction: row;
-      }
-    }
-  }
   article {
     p {
       text-indent: 1em;

@@ -1,0 +1,160 @@
+.page-campaign {
+  article {
+    max-width: 686px;
+    h3 {
+      font-size: 19px;
+    }
+  }
+  .glide__slide {
+    .image {
+      height: 60vw;
+    }
+  }
+  .indent-content {
+    margin-left: 8px;
+  }
+  .gallery-indent {
+    margin-bottom: 32px;
+  }
+  .map-image {
+    margin: 29px -22px 29px -30px;
+    .indent-content {
+      margin-left: -8px;
+    }
+  }
+  .mobility-service-1 {
+    .orbit .orbit-figure {
+      // height: 64.2vw;
+      background-size: contain;
+    }
+  }
+  .mobility-service-2 {
+    .orbit .orbit-figure {
+      background-size: contain;
+    }
+  }
+  dl {
+    dt {
+      font-weight: normal;
+    }
+  }
+  @include breakpoint(medium) {
+    .glide__slide {
+      .image {
+        height: 400px;
+      }
+    }
+    .indent-content {
+      margin-left: 29px;
+    }
+    .gallery-indent {
+      margin-left: 29px;
+      margin-bottom: 32px;
+    }
+    .map-image {
+      margin: 63px 0 140px;
+    }
+    dl {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      dt {
+        width: 150px;
+      }
+      dd {
+        flex: 1;
+      }
+    }
+  }
+}
+#mobility-service {
+  .title {
+    margin-bottom: 27px;
+  }
+  @include breakpoint(medium) {
+    h3 {
+      margin-top: 86px;
+      margin-bottom: 33px;
+    }
+  }
+}
+[class*=mobility-service-] {
+  h3 {
+    margin-top: 47px;
+    margin-bottom: 41px;
+  }
+  .orbit {
+    margin: 34px -22px 92px -30px;
+  }
+  @include breakpoint(medium) {
+    h3 {
+      margin: 86px 0 33px;
+    }
+  }
+}
+#cycle-guide-a,
+#cycle-guide-b,
+#cycle-guide-c {
+  @extend .indent-content;
+  h3 {
+    margin-top: 42px;
+    margin-bottom: 32px;
+  }
+  .orbit {
+    margin: 32px 0 32px;
+  }
+  .movie-youtube {
+    width: 100%;
+    margin: 32px 0 32px;
+  }
+  dl {
+    font-size: 13.5px;
+    dt {
+      font-weight: normal;
+    }
+    &:not(.no-flex) {
+      display: flex;
+      flex-direction: row;
+      dt {
+        width: 100px;
+      }
+      dd {
+        flex: 1;
+      }
+    }
+  }
+  @include breakpoint(small only) {
+    .movie-youtube {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+  @include breakpoint(medium) {
+    dl:nth-child(n) {
+      font-size: inherit;
+      display: flex;
+      flex-direction: row;
+      dt {
+        width: 150px;
+      }
+      dd {
+        flex: 1;
+      }
+    }
+  }
+}
+.article-disclaimer {
+  margin-bottom: 92px;
+  .indent-content {
+    div {
+      position: relative;
+      padding-left: 15px;
+      line-height: 1.9;
+      &:before {
+        content: "・";
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+}

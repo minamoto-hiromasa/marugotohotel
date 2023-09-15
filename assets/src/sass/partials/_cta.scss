@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
     width: 100%;
     color: white;
   }
@@ -26,14 +26,14 @@
   .book_en {
     display: block;
     margin: 0 auto;
-    font-size: 21px;
+    font-size: 14px;
     margin-bottom: 4px;
     line-height: 1.2;
     margin-top: 2px;
     letter-spacing: 1.5px;
   }
   .book_ja {
-    margin-left: -4px;
+    font-size: 21px;
   }
   .pencil {
     display: block;
@@ -69,11 +69,8 @@
         vertical-align: middle;
         margin-right: 0px;
         margin-left: -12px;
-        top: 2px;
+        top: -3px;
         position: relative;
-      }
-      img {
-        width: 117px;
       }
     }
     .pencil {

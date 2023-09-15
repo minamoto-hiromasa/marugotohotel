@@ -19,10 +19,13 @@
     // } else {
     //     do_action( 'wp_body_open' );
     // }
-
+    global $post;
     $campaignPageSlug = "campaign";
     $storiesPageSlug = "stories-of-ome-line";
+    $slug = $post->post_name;
     $storiesClass = (is_page($storiesPageSlug)) ? "page-stories" : "";
+    $storiesClass .= " page-" . $slug;
+
 
     function isPageAnchor($url) {
       $keyword = 'http';

@@ -5,18 +5,23 @@
 </div><!-- .sticky-wrap -->
 <?php get_template_part( 'footer-widget' ); ?>
 
+<?php
+  $page = get_page_by_path("cta-settings", OBJECT, "cta");
+  if(get_field('cta-available', $page->ID)) :
+?>
 <div id="cta-reservation">
-  <a href="https://airrsv.net/ensenmarugoto-ome/calendar" target="_blank" class="button-reservation">
+  <a href="<?php echo get_field('cta-url', $page->ID) ?>" target="_blank" class="button-reservation">
     <div class="book_ja">
-      <img src="<?php echo get_template_directory_uri()?>/assets/public/svg/book_ja.svg" width="132" alt="ご予約はこちら">
+      <?php echo get_field('cta-title', $page->ID) ?>
     </div>
     <div class="book_en">
-      <img src="<?php echo get_template_directory_uri()?>/assets/public/svg/book_en.svg" width="96" alt="BOOK NOW">
+      <?php echo get_field('cta-english', $page->ID) ?>
     </div>
-    <img class="pencil" src="<?php echo get_template_directory_uri()?>/assets/public/svg/pencil.svg" width="20"
+    <img class="pencil" src="<?php echo get_template_directory_uri()?>/assets/public/images/pencil.svg" width="20"
       alt="鉛筆">
   </a>
 </div>
+<?php endif; ?>
 <footer id="footer">
   <p>
     <!-- some message can be here-->

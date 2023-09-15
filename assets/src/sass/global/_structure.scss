@@ -164,3 +164,20 @@ article {
     }
   }
 }
+.grid-x {
+  // gutenbergは勝手に要素の中にDIVタグを生成するため、それを見越した対応
+  > div {
+    display: flex;
+    flex-direction: row;
+  }
+  &.right {
+    > div {
+      justify-content: flex-end;
+    }
+  }
+  @include breakpoint(medium) {
+    > div {
+      flex-direction: row;
+    }
+  }
+}

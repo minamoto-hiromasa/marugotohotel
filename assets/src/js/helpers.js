@@ -9,6 +9,8 @@ class setupGallerySlider {
 		this.glideEl = document.createElement('div');
 		const trackElm = document.createElement('div');
 		const ulElm = document.createElement('ul');
+
+		// Arrow elements
 		const arrowContainer = document.createElement('div');
 		const arrowLeft = document.createElement('button');
 		const arrowRight = document.createElement('button');
@@ -23,6 +25,18 @@ class setupGallerySlider {
 		arrowRight.textContent = 'next';
 		arrowContainer.appendChild(arrowRight);
 
+		// Bullets elements
+		const bulletContainer = document.createElement('div');
+		bulletContainer.classList.add('glide__bullets');
+		bulletContainer.setAttribute('data-glide-el', 'controls[nav]');
+		console.log(imageGroup.length);
+		for (let i = 0; i < imageGroup.length; i++) {
+			const bullet = document.createElement('button');
+			bullet.classList.add('glide__bullet');
+			bullet.setAttribute('data-glide-dir', '=' + i);
+			bulletContainer.appendChild(bullet);
+		}
+
 		this.glideEl.classList.add('glide-' + Date.now());
 		this.glideEl.classList.add('glide');
 		trackElm.classList.add('glide__track');
@@ -31,21 +45,22 @@ class setupGallerySlider {
 
 		imageGroup.forEach((image) => {
 			const listElm = document.createElement('li');
-			// const imageDiv = document.createElement('div');
-			const imageElm = document.createElement('img');
-			imageElm.src = image.attributes.src.value;
-			imageElm.classList.add('glide__slide__img');
-			// imageDiv.classList.add('image');
-			// imageDiv.style.backgroundImage = `url(${image.attributes.src.value})`;
+			const imageDiv = document.createElement('div');
+			// const imageElm = document.createElement('img');
+			// imageElm.src = image.attributes.src.value;
+			// imageElm.classList.add('glide__slide__img');
+			imageDiv.classList.add('image');
+			imageDiv.style.backgroundImage = `url(${image.attributes.src.value})`;
 			listElm.classList.add('glide__slide');
-			// listElm.appendChild(imageDiv);
-			listElm.appendChild(imageElm);
+			listElm.appendChild(imageDiv);
+			// listElm.appendChild(imageElm);
 			ulElm.appendChild(listElm);
 			image.remove();
 		});
 		trackElm.appendChild(ulElm);
 		this.glideEl.appendChild(trackElm);
 		if (this.hasArrow) this.glideEl.appendChild(arrowContainer);
+		if (!this.hasArrow) this.glideEl.appendChild(bulletContainer);
 		// const groupChildren = this.group.children;
 		// console.log(groupChildren);
 		// for (let i = 0; i < groupChildren.length; i++) {
