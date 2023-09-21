@@ -2,7 +2,13 @@
   article {
     max-width: 686px;
     h3 {
+      font-size: 20px;
+    }
+    h4 {
       font-size: 19px;
+    }
+    .title {
+      font-size: 24px;
     }
   }
   .glide__slide {
@@ -39,6 +45,15 @@
     }
   }
   @include breakpoint(medium) {
+    article {
+      max-width: 686px;
+      h3 {
+        font-size: 21px;
+      }
+      h4 {
+        font-size: 21px;
+      }
+    }
     .glide__slide {
       .image {
         height: 400px;

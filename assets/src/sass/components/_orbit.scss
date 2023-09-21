@@ -79,20 +79,10 @@
   }
 }
 #section-marugoto {
-  [class^=glide-] {
-    margin-left: 8px;
-    width: calc(100% - 8px);
-  }
-  .orbit-figure {
-    height: 60vw;
-  }
   @include breakpoint(medium) {
     [class^=glide-] {
       margin-left: 58px;
       width: 620px;
-    }
-    .orbit-figure {
-      height: 410px;
     }
   }
 }

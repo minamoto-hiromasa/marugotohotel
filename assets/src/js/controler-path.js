@@ -5,7 +5,11 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 gsap.registerPlugin(ScrollToPlugin);
 
-import { isQueryMatch, setupExpandContent, setupGallerySlider } from './helpers.js';
+import {
+	isQueryMatch,
+	setupExpandContent,
+	setupGallerySlider,
+} from './helpers.js';
 
 const slideAnimeDuration = 4500;
 const glideOptions = {
@@ -88,6 +92,10 @@ export const controlerPath = {
 			const controller = new ScrollMagic.Controller();
 			function triggerHandlerCta(e) {
 				const ctaElem = document.getElementById('cta-reservation');
+				if (!ctaElem) {
+					console.info('CTAは無効に設定されています。');
+					return false;
+				}
 				if (e.type === 'enter') {
 					ctaElem.classList.add('show');
 					sideNav.classList.add('up');

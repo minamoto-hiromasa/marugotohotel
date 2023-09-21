@@ -9,9 +9,6 @@
 
 ?>
 
-<div class="post-thumbnail">
-  <?php the_post_thumbnail(); ?>
-</div>
 <?php
 	if ( is_single() ) :
 		the_content();

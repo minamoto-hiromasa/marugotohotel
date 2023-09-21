@@ -29,7 +29,6 @@ class setupGallerySlider {
 		const bulletContainer = document.createElement('div');
 		bulletContainer.classList.add('glide__bullets');
 		bulletContainer.setAttribute('data-glide-el', 'controls[nav]');
-		console.log(imageGroup.length);
 		for (let i = 0; i < imageGroup.length; i++) {
 			const bullet = document.createElement('button');
 			bullet.classList.add('glide__bullet');
@@ -99,7 +98,9 @@ class setupExpandContent {
 			return false;
 		}
 		const paragraph = this.target.getElementsByTagName('p')[0];
-		const fontSize = window.getComputedStyle(paragraph).fontSize.replace('px', '');
+		const fontSize = window
+			.getComputedStyle(paragraph)
+			.fontSize.replace('px', '');
 		const lineHeight = fontSize * 1.9;
 		const openParagraphHeight = this.target.clientHeight;
 		const article = this.target.closest('article');

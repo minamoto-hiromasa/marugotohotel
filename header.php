@@ -40,7 +40,7 @@
     $mainMenu = wp_get_nav_menu_items($menuID);
     $navHtml = '<div id="main-menu">';
     foreach($mainMenu as $item){
-      $mainUrlPrefix = (is_page($campaignPageSlug) && isPageAnchor($item -> url)) ? home_url( '/' ) : "";
+      $mainUrlPrefix = (is_page(array($campaignPageSlug, $storiesPageSlug)) && isPageAnchor($item -> url)) ? home_url( '/' ) : "";
       $navHtml .=
         '<a class="' . str_replace("#", "menu-", $item -> url) . '"
         href="' . $mainUrlPrefix . $item -> url . '"><span>' . $item -> title . '</span></a>';
@@ -70,6 +70,10 @@
         href="' . $campaignUrlPrefix . $item -> url . '"><span>' . $item -> title . '</span></a>';
     }
     $campaginNavHtml .= '</div>';
+
+    // アイキャッチ画像取得
+    $eyeCatchImage = get_the_post_thumbnail_url();
+    $eyeCatchHtml = '<div class="eye-catch" style="background-image: url(' . $eyeCatchImage . ');"></div>'
 ?>
   <div class="wrapper <?php echo $storiesClass?>">
     <div id="sticky-wrap" class="sticky-wrap">
@@ -97,7 +101,8 @@
                 // グローバルメニュー
                 echo $navHtml;
               ?>
-              <a href="https://www.facebook.com/ensenmarugoto" class="facebook" target="_blank">
+              <a href="https://www.facebook.com/ensenmarugoto" class="facebook" target="_blank"
+                rel="noopener noreferrer">
                 <img src="<?php echo get_template_directory_uri()?>/assets/public/images/logo-facebook.svg"
                   alt="facebook" />
               </a>
@@ -106,13 +111,16 @@
         </aside>
         <div id="content-wrap" class="content-wrap">
           <?php
-            $page = get_page_by_path("key-visual-pc", OBJECT, "key-visual");
-            $content = apply_filters('the_content', $page->post_content);
-            echo $content;
-          ?>
-          <?php
-            $page = get_page_by_path("key-visual-sp", OBJECT, "key-visual");
-            $content = apply_filters('the_content', $page->post_content);
-            echo $content;
+            // アイキャッチ画像が設定されていない場合は、共通のスライダーを表示。それ以外はアイキャッチ画像を表示
+            if ($eyeCatchImage == null) {
+              $page = get_page_by_path("key-visual-pc", OBJECT, "key-visual");
+              $content = apply_filters('the_content', $page->post_content);
+              echo $content;
+              $page = get_page_by_path("key-visual-sp", OBJECT, "key-visual");
+              $content = apply_filters('the_content', $page->post_content);
+              echo $content;
+            } else {
+              echo $eyeCatchHtml;
+            }
           ?>
           <div id="reading-content">

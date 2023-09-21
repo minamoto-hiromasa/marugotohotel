@@ -30,6 +30,11 @@
     height: 56vw;
     padding-bottom: 0;
   }
+  @include breakpoint(medium) {
+    .image {
+      height: 410px;
+    }
+  }
 }
 
 .glide__slide.glide__slide--active {
@@ -88,6 +93,9 @@
   display: none;
   @include breakpoint(medium) {
     display: block;
+    .image {
+      height: 60vw;
+    }
   }
 }
 #gallery-2 {

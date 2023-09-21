@@ -46,7 +46,7 @@ article {
         padding: 3px 0 3px 12px;
         &:before {
           height: 26px;
-          top: 2px;
+          top: 5px;
           left: 0;
         }
       }
@@ -111,13 +111,13 @@ article {
       margin-top: 9px;
     }
   }
-  .image {
-    margin-left: 58px;
-    img {
-      display: block;
-      max-width: 620px;
-    }
-  }
+  // .image {
+  //   margin-left: 58px;
+  //   img {
+  //     display: block;
+  //     max-width: 620px;
+  //   }
+  // }
   @include breakpoint(small only) {
     margin-left: -8px;
     padding-top: 18px;
@@ -168,10 +168,11 @@ article {
   // gutenbergは勝手に要素の中にDIVタグを生成するため、それを見越した対応
   > div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   &.right {
     > div {
+      flex-direction: row;
       justify-content: flex-end;
     }
   }
