@@ -3906,9 +3906,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _glidejs_glide__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @glidejs/glide */ "./node_modules/@glidejs/glide/dist/glide.esm.js");
 /* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! scrollmagic */ "./node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js");
 /* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(scrollmagic__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
-/* harmony import */ var _helpers_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers.js */ "./assets/src/js/helpers.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./functions */ "./assets/src/js/functions.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers.js */ "./assets/src/js/helpers.js");
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -3919,7 +3920,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
-gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__.ScrollToPlugin);
+
+
+gsap__WEBPACK_IMPORTED_MODULE_4__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_5__.ScrollToPlugin);
 
 var slideAnimeDuration = 4500;
 var glideOptions = {
@@ -3949,7 +3952,7 @@ var controlerPath = {
             isArrow = false;
           }
 
-          var slider = new _helpers_js__WEBPACK_IMPORTED_MODULE_4__.setupGallerySlider(gallery, {
+          var slider = new _helpers__WEBPACK_IMPORTED_MODULE_3__.setupGallerySlider(gallery, {
             arrow: isArrow
           });
           slider.init(function () {
@@ -3996,7 +3999,7 @@ var controlerPath = {
 
             if (element.attributes.href.value.indexOf('#') === 0) {
               var targetElem = document.getElementById(element.attributes.href.value.replace('#', ''));
-              gsap__WEBPACK_IMPORTED_MODULE_2__.gsap.to(window, {
+              gsap__WEBPACK_IMPORTED_MODULE_4__.gsap.to(window, {
                 duration: 1,
                 scrollTo: {
                   y: getOffset(targetElem).top
@@ -4027,7 +4030,7 @@ var controlerPath = {
       try {
         for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
           var target = _step3.value;
-          var expander = new _helpers_js__WEBPACK_IMPORTED_MODULE_4__.setupExpandContent(target, {
+          var expander = new _helpers__WEBPACK_IMPORTED_MODULE_3__.setupExpandContent(target, {
             lines: 5
           });
           expander.init();
@@ -4040,28 +4043,19 @@ var controlerPath = {
       }
 
       var controller = new (scrollmagic__WEBPACK_IMPORTED_MODULE_1___default().Controller)();
+      var elemCTA = document.getElementById('trigger-cta');
+      var footerElem = document.getElementById('footer');
 
-      function triggerHandlerCta(e) {
-        var ctaElem = document.getElementById('cta-reservation');
-
-        if (!ctaElem) {
-          console.info('CTAは無効に設定されています。');
-          return false;
-        }
-
-        if (e.type === 'enter') {
-          ctaElem.classList.add('show');
-          sideNav.classList.add('up');
-        } else {
-          ctaElem.classList.remove('show');
-          sideNav.classList.remove('up');
-        }
+      if (elemCTA) {
+        footerElem.classList.add('has-cta');
+        new (scrollmagic__WEBPACK_IMPORTED_MODULE_1___default().Scene)({
+          triggerElement: '#trigger-cta',
+          triggerHook: 0.5
+        }).on('enter leave', _functions__WEBPACK_IMPORTED_MODULE_2__.triggerHandlerCta).addTo(controller);
+      } else {
+        console.warn('CTAのトリガーが設定されていません。');
+        return false;
       }
-
-      new (scrollmagic__WEBPACK_IMPORTED_MODULE_1___default().Scene)({
-        triggerElement: '#trigger-cta',
-        triggerHook: 0.5
-      }).on('enter leave', triggerHandlerCta).addTo(controller);
     }
   },
   home: {
@@ -4076,7 +4070,7 @@ var controlerPath = {
 
       var menuItems = mainMenu.getElementsByTagName('a'); // Stick title on desktop only
 
-      if (menuItems.length > 0 && (0,_helpers_js__WEBPACK_IMPORTED_MODULE_4__.isQueryMatch)()) {
+      if (menuItems.length > 0 && (0,_helpers__WEBPACK_IMPORTED_MODULE_3__.isQueryMatch)()) {
         var _iterator4 = _createForOfIteratorHelper(menuItems),
             _step4;
 
@@ -4124,8 +4118,61 @@ var controlerPath = {
         console.info('メニューが登録されていません');
       }
     }
+  },
+  'page-dmo': {
+    init: function init() {
+      var swapImageGroups = document.getElementsByClassName('swap-images');
+
+      var _iterator6 = _createForOfIteratorHelper(swapImageGroups),
+          _step6;
+
+      try {
+        for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+          var imageGroup = _step6.value;
+          var control = new _helpers__WEBPACK_IMPORTED_MODULE_3__.swapImageControl(imageGroup);
+          control.init();
+        }
+      } catch (err) {
+        _iterator6.e(err);
+      } finally {
+        _iterator6.f();
+      }
+    }
   }
 };
+
+/***/ }),
+
+/***/ "./assets/src/js/functions.js":
+/*!************************************!*\
+  !*** ./assets/src/js/functions.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "triggerHandlerCta": () => (/* binding */ triggerHandlerCta)
+/* harmony export */ });
+function triggerHandlerCta(e) {
+  var ctaElem = document.getElementById('cta-reservation');
+  var sideNav = document.getElementsByClassName('side-nav')[0];
+
+  if (!ctaElem) {
+    console.info('CTAは無効に設定されています。');
+    return false;
+  }
+
+  if (e.type === 'enter') {
+    ctaElem.classList.add('show');
+    sideNav.classList.add('up');
+  } else {
+    ctaElem.classList.remove('show');
+    sideNav.classList.remove('up');
+  }
+}
+
+
 
 /***/ }),
 
@@ -4141,7 +4188,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "setupGallerySlider": () => (/* binding */ setupGallerySlider),
 /* harmony export */   "observeNodes": () => (/* binding */ observeNodes),
 /* harmony export */   "isQueryMatch": () => (/* binding */ isQueryMatch),
-/* harmony export */   "setupExpandContent": () => (/* binding */ setupExpandContent)
+/* harmony export */   "setupExpandContent": () => (/* binding */ setupExpandContent),
+/* harmony export */   "swapImageControl": () => (/* binding */ swapImageControl)
 /* harmony export */ });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -4278,17 +4326,71 @@ var setupExpandContent = /*#__PURE__*/function () {
       var closedParagraphHeight = Math.ceil(lineHeight * this.lines);
       this.target.style.height = closedParagraphHeight + 'px'; // Close
 
-      var expandButton = article.getElementsByClassName('expand-button')[0];
-      expandButton.addEventListener('click', function (e) {
-        console.log('clicked', _this);
+      var elemContainer = document.createElement('div');
+      elemContainer.classList.add('grid-x', 'right');
+      var btn = document.createElement('div');
+      btn.innerHTML = 'もっと見る';
+      btn.classList.add('expand-button');
+      var parent = this.target.parentElement;
+      btn.addEventListener('click', function (e) {
         e.preventDefault();
         _this.target.style.height = openParagraphHeight + 'px';
         e.target.style.display = 'none';
       });
+      elemContainer.appendChild(btn);
+      parent.insertBefore(elemContainer, this.target.nextSibling);
     }
   }]);
 
   return setupExpandContent;
+}();
+
+var swapImageControl = /*#__PURE__*/function () {
+  function swapImageControl(imageGroup) {
+    _classCallCheck(this, swapImageControl);
+
+    this.imageGroup = imageGroup;
+  }
+
+  _createClass(swapImageControl, [{
+    key: "init",
+    value: function init() {
+      var parent = this.imageGroup.parentElement;
+      var contentGroup = parent.getElementsByClassName('swap-content');
+      var images = this.imageGroup.getElementsByTagName('figure');
+
+      if (images.length !== contentGroup.length + 1) {
+        console.error('SwapImagesの設定が正しくありません。画像とボタンの数を確認してください。');
+        return false;
+      }
+
+      for (var i = 0; i < contentGroup.length; i++) {
+        var content = contentGroup[i];
+        content.addEventListener('mouseover', {
+          index: i + 1,
+          figures: images,
+          handleEvent: this.swapImage
+        });
+        content.addEventListener('mouseout', {
+          index: 0,
+          figures: images,
+          handleEvent: this.swapImage
+        });
+      }
+    }
+  }, {
+    key: "swapImage",
+    value: function swapImage() {
+      for (var i = 1; i < this.figures.length; i++) {
+        var figure = this.figures[i];
+        figure.style.display = 'none';
+      }
+
+      this.figures[this.index].style.display = 'block';
+    }
+  }]);
+
+  return swapImageControl;
 }();
 
 

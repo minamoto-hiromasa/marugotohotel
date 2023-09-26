@@ -155,6 +155,7 @@
 /* Media Query */
 /* Colors */
 /* Structures */
+/* Footer */
 .wp-block-button__link {
   color: #231f20;
   background: none;
@@ -375,7 +376,7 @@ a {
   transform: rotate(45deg);
   border-top: 1px solid black;
   border-right: 1px solid black;
-  bottom: 7px;
+  top: calc(50% - 3.5px);
 }
 .external a:before {
   right: 2px;
@@ -390,7 +391,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 }
 
-.font-gothic, .expand-button a {
+.font-gothic, .expand-button {
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
   font-weight: 700;
 }
@@ -715,15 +716,16 @@ article .title.title-indent:before {
   transition: height 0.5s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.expand-button a {
+.expand-button {
   text-decoration: none;
   font-size: 11px;
   margin-top: 8px;
   position: relative;
   padding-right: 18px;
   font-weight: bold;
+  cursor: pointer;
 }
-.expand-button a:after {
+.expand-button:after {
   content: "";
   position: absolute;
   right: 0;
@@ -1017,7 +1019,9 @@ aside.side-nav nav a span {
 footer {
   display: flex;
   justify-content: space-between;
-  padding: 30px 60px;
+}
+footer.has-cta {
+  margin-bottom: 88px;
 }
 footer p {
   line-height: 2;
@@ -1029,32 +1033,66 @@ footer img {
   display: inline-block;
   margin: 0 11px;
 }
-footer .sponsers {
-  margin-right: -20px;
+footer .brand {
+  background-color: #E6E7E8;
+}
+footer .brand ul li {
+  list-style-type: none;
 }
 @media (max-width: 639px) {
   footer {
     flex-direction: column;
-    padding-left: 22px;
-    padding-right: 22px;
   }
   footer img {
     margin-bottom: 11px;
   }
   footer .sponsers {
     text-align: center;
-    margin: 0 -11px;
   }
 }
 @media (min-width: 640px) {
   footer {
+    flex-direction: column;
     display: flex;
     align-items: center;
+  }
+  footer.has-cta {
+    margin-bottom: 125px;
   }
   footer p {
     font-size: 12px;
     text-align: left;
     margin: 0;
+  }
+  footer .sponsers {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 30px;
+  }
+  footer .brand {
+    padding: 0 30px;
+    width: 100%;
+    position: relative;
+  }
+  footer .brand ul {
+    position: absolute;
+    z-index: 1;
+    right: 30px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+  footer .brand ul li {
+    margin: 0 25px;
+  }
+  footer .brand ul a {
+    text-decoration: none;
+  }
+  footer .brand .copyright {
+    line-height: 60px;
   }
 }
 
@@ -1063,7 +1101,6 @@ footer .sponsers {
   z-index: 100;
   width: 100%;
   bottom: 0;
-  background-color: rgba(0, 104, 56, 0.5);
   text-align: center;
   height: 125px;
   display: flex;
@@ -1072,12 +1109,18 @@ footer .sponsers {
   transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 #cta-reservation a {
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   color: white;
+  background-color: rgba(0, 104, 56, 0.5);
+  transition: background-color 0.3s linear;
+}
+#cta-reservation a:hover {
+  background-color: rgba(0, 104, 56, 0.6);
 }
 #cta-reservation .pencil {
   position: relative;
@@ -1551,6 +1594,81 @@ footer .sponsers {
   content: "・";
   position: absolute;
   left: 0;
+}
+
+.page-dmo h4 {
+  font-size: 22px;
+}
+.page-dmo .link-list {
+  padding-left: 20px;
+}
+.page-dmo .link-list li {
+  list-style-type: none;
+}
+.page-dmo .link-list a {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  font-size: 22px;
+  text-decoration: none;
+  line-height: 1;
+  margin-bottom: 12px;
+  padding-right: 28px;
+}
+.page-dmo .link-list a:before {
+  content: "";
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  width: 100%;
+  margin-top: 5px;
+  position: absolute;
+  bottom: 0;
+}
+.page-dmo .link-list a:after {
+  content: "";
+  border-bottom: 1px solid #231f20;
+  width: 100%;
+  margin-top: 5px;
+  display: block;
+  transform: scaleX(0);
+  transform-origin: left top;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.page-dmo .link-list a:hover:after {
+  transform: scaleX(1);
+}
+.page-dmo .link-download {
+  background-color: rgba(0, 105, 56, 0.5);
+  transition: background-color 0.3s linear;
+  padding: 14px;
+}
+.page-dmo .link-download:hover {
+  background-color: rgba(0, 105, 56, 0.7);
+}
+.page-dmo .link-download a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+.page-dmo .link-detail a {
+  text-decoration: none;
+  font-size: 11px;
+}
+.page-dmo #reading-content {
+  max-width: 742px;
+}
+.page-dmo #content-wrap .wp-block-gallery.has-nested-images.swap-images {
+  position: relative;
+}
+.page-dmo #content-wrap .wp-block-gallery.has-nested-images.swap-images figure.wp-block-image {
+  width: 100%;
+}
+.page-dmo #content-wrap .wp-block-gallery.has-nested-images.swap-images figure.wp-block-image:not(:first-child) {
+  display: none;
+  position: absolute;
+}
+.page-dmo #content-wrap .swap-content dl dt {
+  cursor: pointer;
 }
 
 #section-campagin {

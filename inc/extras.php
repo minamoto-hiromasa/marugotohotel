@@ -28,6 +28,10 @@ function wp_bootstrap_starter_body_classes( $classes ) {
         $classes[] = 'theme-preset-active';
     }
 
+    $post = get_post();
+    $slug = ! empty( $post ) ? $post->post_name : '';
+    $classes[] = 'page-' . $slug;
+
 	return $classes;
 }
 add_filter( 'body_class', 'wp_bootstrap_starter_body_classes' );

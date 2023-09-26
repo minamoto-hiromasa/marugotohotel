@@ -2,6 +2,8 @@ import Glide from '@glidejs/glide';
 import ScrollMagic from 'scrollmagic';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { triggerHandlerCta } from './functions';
+import { swapImageControl } from './helpers';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -90,26 +92,20 @@ export const controlerPath = {
 
 			// CTA
 			const controller = new ScrollMagic.Controller();
-			function triggerHandlerCta(e) {
-				const ctaElem = document.getElementById('cta-reservation');
-				if (!ctaElem) {
-					console.info('CTAは無効に設定されています。');
-					return false;
-				}
-				if (e.type === 'enter') {
-					ctaElem.classList.add('show');
-					sideNav.classList.add('up');
-				} else {
-					ctaElem.classList.remove('show');
-					sideNav.classList.remove('up');
-				}
+			const elemCTA = document.getElementById('trigger-cta');
+			const footerElem = document.getElementById('footer');
+			if (elemCTA) {
+				footerElem.classList.add('has-cta');
+				new ScrollMagic.Scene({
+					triggerElement: '#trigger-cta',
+					triggerHook: 0.5,
+				})
+					.on('enter leave', triggerHandlerCta)
+					.addTo(controller);
+			} else {
+				console.warn('CTAのトリガーが設定されていません。');
+				return false;
 			}
-			new ScrollMagic.Scene({
-				triggerElement: '#trigger-cta',
-				triggerHook: 0.5,
-			})
-				.on('enter leave', triggerHandlerCta)
-				.addTo(controller);
 		},
 	},
 	home: {
@@ -148,6 +144,16 @@ export const controlerPath = {
 				}
 			} else {
 				console.info('メニューが登録されていません');
+			}
+		},
+	},
+	'page-dmo': {
+		init: () => {
+			const swapImageGroups =
+				document.getElementsByClassName('swap-images');
+			for (const imageGroup of swapImageGroups) {
+				const control = new swapImageControl(imageGroup);
+				control.init();
 			}
 		},
 	},

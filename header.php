@@ -22,6 +22,7 @@
     global $post;
     $campaignPageSlug = "campaign";
     $storiesPageSlug = "stories-of-ome-line";
+    $dmoPageSlug = "dmo";
     $slug = $post->post_name;
     $storiesClass = (is_page($storiesPageSlug)) ? "page-stories" : "";
     $storiesClass .= " page-" . $slug;
@@ -40,7 +41,10 @@
     $mainMenu = wp_get_nav_menu_items($menuID);
     $navHtml = '<div id="main-menu">';
     foreach($mainMenu as $item){
-      $mainUrlPrefix = (is_page(array($campaignPageSlug, $storiesPageSlug)) && isPageAnchor($item -> url)) ? home_url( '/' ) : "";
+      $mainUrlPrefix = (
+        is_page(array($campaignPageSlug, $storiesPageSlug, $dmoPageSlug)) &&
+        isPageAnchor($item -> url)
+      ) ? home_url( '/' ) : "";
       $navHtml .=
         '<a class="' . str_replace("#", "menu-", $item -> url) . '"
         href="' . $mainUrlPrefix . $item -> url . '"><span>' . $item -> title . '</span></a>';

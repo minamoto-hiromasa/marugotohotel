@@ -24,7 +24,7 @@ a {
     transform: rotate(45deg);
     border-top: 1px solid black;
     border-right: 1px solid black;
-    bottom: 7px;
+    top: calc(50% - 3.5px);
   }
   &:before {
     right: 2px;

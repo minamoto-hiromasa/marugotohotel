@@ -112,14 +112,62 @@ class setupExpandContent {
 		this.target.style.height = closedParagraphHeight + 'px';
 
 		// Close
-		const expandButton = article.getElementsByClassName('expand-button')[0];
-		expandButton.addEventListener('click', (e) => {
-			console.log('clicked', this);
+		const elemContainer = document.createElement('div');
+		elemContainer.classList.add('grid-x', 'right');
+		const btn = document.createElement('div');
+		btn.innerHTML = 'もっと見る';
+		btn.classList.add('expand-button');
+		const parent = this.target.parentElement;
+		btn.addEventListener('click', (e) => {
 			e.preventDefault();
 			this.target.style.height = openParagraphHeight + 'px';
 			e.target.style.display = 'none';
 		});
+		elemContainer.appendChild(btn);
+		parent.insertBefore(elemContainer, this.target.nextSibling);
 	}
 }
 
-export { setupGallerySlider, observeNodes, isQueryMatch, setupExpandContent };
+class swapImageControl {
+	constructor(imageGroup) {
+		this.imageGroup = imageGroup;
+	}
+	init() {
+		const parent = this.imageGroup.parentElement;
+		const contentGroup = parent.getElementsByClassName('swap-content');
+		const images = this.imageGroup.getElementsByTagName('figure');
+		if (images.length !== contentGroup.length + 1) {
+			console.error(
+				'SwapImagesの設定が正しくありません。画像とボタンの数を確認してください。'
+			);
+			return false;
+		}
+		for (let i = 0; i < contentGroup.length; i++) {
+			const content = contentGroup[i];
+			content.addEventListener('mouseover', {
+				index: i + 1,
+				figures: images,
+				handleEvent: this.swapImage,
+			});
+			content.addEventListener('mouseout', {
+				index: 0,
+				figures: images,
+				handleEvent: this.swapImage,
+			});
+		}
+	}
+	swapImage() {
+		for (let i = 1; i < this.figures.length; i++) {
+			const figure = this.figures[i];
+			figure.style.display = 'none';
+		}
+		this.figures[this.index].style.display = 'block';
+	}
+}
+export {
+	setupGallerySlider,
+	observeNodes,
+	isQueryMatch,
+	setupExpandContent,
+	swapImageControl,
+};
