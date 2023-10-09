@@ -736,6 +736,9 @@ article .title.title-indent:before {
   transform: rotate(-45deg);
 }
 
+aside.side-nav #main-menu a {
+  font-weight: bold;
+}
 aside.side-nav .logo {
   position: absolute;
   top: 33px;
