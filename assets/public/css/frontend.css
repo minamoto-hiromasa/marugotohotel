@@ -546,6 +546,7 @@ article .title.title-indent:before {
     margin-bottom: 5px;
   }
   .description small {
+    font-size: 14px;
     display: block;
     float: none;
     margin-bottom: 12px;
@@ -1234,7 +1235,7 @@ footer .brand ul li {
 }
 #section-marugoto h3 {
   font-weight: normal;
-  margin: 0;
+  margin-top: 0;
   font-size: 17px;
 }
 @media (max-width: 639px) {
