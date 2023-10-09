@@ -359,11 +359,6 @@ a:focus, button:focus {
   color: #231f20;
 }
 
-a {
-  display: block;
-  text-align: right;
-}
-
 .external a {
   position: relative;
   padding-right: 18px;
