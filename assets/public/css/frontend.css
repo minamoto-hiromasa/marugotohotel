@@ -1424,9 +1424,7 @@ footer .brand ul li {
 .page-campaign .glide__slide .image {
   height: 60vw;
 }
-.page-campaign .indent-content, .page-campaign #cycle-guide-a,
-.page-campaign #cycle-guide-b,
-.page-campaign #cycle-guide-c {
+.page-campaign .indent-content {
   margin-left: 8px;
 }
 .page-campaign .gallery-indent {
@@ -1435,9 +1433,7 @@ footer .brand ul li {
 .page-campaign .map-image {
   margin: 29px -22px 29px -30px;
 }
-.page-campaign .map-image .indent-content, .page-campaign .map-image #cycle-guide-a,
-.page-campaign .map-image #cycle-guide-b,
-.page-campaign .map-image #cycle-guide-c {
+.page-campaign .map-image .indent-content {
   margin-left: -8px;
 }
 .page-campaign .mobility-service-1 .orbit .orbit-figure {
@@ -1462,9 +1458,7 @@ footer .brand ul li {
   .page-campaign .glide__slide .image {
     height: 400px;
   }
-  .page-campaign .indent-content, .page-campaign #cycle-guide-a,
-.page-campaign #cycle-guide-b,
-.page-campaign #cycle-guide-c {
+  .page-campaign .indent-content {
     margin-left: 29px;
   }
   .page-campaign .gallery-indent {
@@ -1510,90 +1504,15 @@ footer .brand ul li {
   }
 }
 
-#cycle-guide-a h3,
-#cycle-guide-b h3,
-#cycle-guide-c h3 {
-  margin-top: 42px;
-  margin-bottom: 32px;
-}
-#cycle-guide-a .orbit,
-#cycle-guide-b .orbit,
-#cycle-guide-c .orbit {
-  margin: 32px 0 32px;
-}
-#cycle-guide-a .movie-youtube,
-#cycle-guide-b .movie-youtube,
-#cycle-guide-c .movie-youtube {
-  width: 100%;
-  margin: 32px 0 32px;
-}
-#cycle-guide-a dl,
-#cycle-guide-b dl,
-#cycle-guide-c dl {
-  font-size: 13.5px;
-}
-#cycle-guide-a dl dt,
-#cycle-guide-b dl dt,
-#cycle-guide-c dl dt {
-  font-weight: normal;
-}
-#cycle-guide-a dl:not(.no-flex),
-#cycle-guide-b dl:not(.no-flex),
-#cycle-guide-c dl:not(.no-flex) {
-  display: flex;
-  flex-direction: row;
-}
-#cycle-guide-a dl:not(.no-flex) dt,
-#cycle-guide-b dl:not(.no-flex) dt,
-#cycle-guide-c dl:not(.no-flex) dt {
-  width: 100px;
-}
-#cycle-guide-a dl:not(.no-flex) dd,
-#cycle-guide-b dl:not(.no-flex) dd,
-#cycle-guide-c dl:not(.no-flex) dd {
-  flex: 1;
-}
-@media (max-width: 639px) {
-  #cycle-guide-a .movie-youtube,
-#cycle-guide-b .movie-youtube,
-#cycle-guide-c .movie-youtube {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-@media (min-width: 640px) {
-  #cycle-guide-a dl:nth-child(n),
-#cycle-guide-b dl:nth-child(n),
-#cycle-guide-c dl:nth-child(n) {
-    font-size: inherit;
-    display: flex;
-    flex-direction: row;
-  }
-  #cycle-guide-a dl:nth-child(n) dt,
-#cycle-guide-b dl:nth-child(n) dt,
-#cycle-guide-c dl:nth-child(n) dt {
-    width: 150px;
-  }
-  #cycle-guide-a dl:nth-child(n) dd,
-#cycle-guide-b dl:nth-child(n) dd,
-#cycle-guide-c dl:nth-child(n) dd {
-    flex: 1;
-  }
-}
-
 .article-disclaimer {
   margin-bottom: 92px;
 }
-.article-disclaimer .indent-content div, .article-disclaimer #cycle-guide-a div,
-.article-disclaimer #cycle-guide-b div,
-.article-disclaimer #cycle-guide-c div {
+.article-disclaimer .indent-content div {
   position: relative;
   padding-left: 15px;
   line-height: 1.9;
 }
-.article-disclaimer .indent-content div:before, .article-disclaimer #cycle-guide-a div:before,
-.article-disclaimer #cycle-guide-b div:before,
-.article-disclaimer #cycle-guide-c div:before {
+.article-disclaimer .indent-content div:before {
   content: "・";
   position: absolute;
   left: 0;
@@ -1680,18 +1599,14 @@ footer .brand ul li {
 #section-campagin article {
   max-width: 686px;
 }
-#section-campagin .indent-content, #section-campagin #cycle-guide-a,
-#section-campagin #cycle-guide-b,
-#section-campagin #cycle-guide-c {
+#section-campagin .indent-content {
   margin-left: 8px;
 }
 @media (min-width: 640px) {
   #section-campagin article .orbit-figure {
     height: 400px;
   }
-  #section-campagin .indent-content, #section-campagin #cycle-guide-a,
-#section-campagin #cycle-guide-b,
-#section-campagin #cycle-guide-c {
+  #section-campagin .indent-content {
     margin-left: 29px;
   }
   #section-campagin .orbit-indent {

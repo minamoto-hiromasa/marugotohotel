@@ -107,57 +107,6 @@
     }
   }
 }
-#cycle-guide-a,
-#cycle-guide-b,
-#cycle-guide-c {
-  @extend .indent-content;
-  h3 {
-    margin-top: 42px;
-    margin-bottom: 32px;
-  }
-  .orbit {
-    margin: 32px 0 32px;
-  }
-  .movie-youtube {
-    width: 100%;
-    margin: 32px 0 32px;
-  }
-  dl {
-    font-size: 13.5px;
-    dt {
-      font-weight: normal;
-    }
-    &:not(.no-flex) {
-      display: flex;
-      flex-direction: row;
-      dt {
-        width: 100px;
-      }
-      dd {
-        flex: 1;
-      }
-    }
-  }
-  @include breakpoint(small only) {
-    .movie-youtube {
-      width: 100%;
-      margin-top: 0;
-    }
-  }
-  @include breakpoint(medium) {
-    dl:nth-child(n) {
-      font-size: inherit;
-      display: flex;
-      flex-direction: row;
-      dt {
-        width: 150px;
-      }
-      dd {
-        flex: 1;
-      }
-    }
-  }
-}
 .article-disclaimer {
   margin-bottom: 92px;
   .indent-content {
