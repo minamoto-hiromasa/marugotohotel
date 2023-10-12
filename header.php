@@ -24,7 +24,7 @@
     $campaignPageSlug = "campaign";
     $storiesPageSlug = "stories-of-ome-line";
     $dmoPageSlug = "dmo";
-    $slug = $post->post_name;
+    $slug = is_null($post) ? "POST-DOESNOT-EXIST" : $post->post_name;
     $storiesClass = (is_page($storiesPageSlug)) ? "page-stories" : "";
     $storiesClass .= " page-" . $slug;
 
