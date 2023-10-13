@@ -904,7 +904,7 @@ aside.side-nav nav .nav-inner .has-dash {
 }
 @media (min-width: 640px) {
   aside.side-nav.up nav {
-    padding-bottom: 150px;
+    padding-bottom: 170px;
   }
   aside.side-nav .side-stick {
     position: fixed;
@@ -914,7 +914,6 @@ aside.side-nav nav .nav-inner .has-dash {
     align-items: flex-end;
     justify-content: flex-end;
     z-index: 1;
-    background-color: rgba(255, 255, 255, 0.6);
   }
   aside.side-nav nav {
     margin-top: 200px;
@@ -1023,9 +1022,6 @@ footer {
   display: flex;
   justify-content: space-between;
 }
-footer.has-cta {
-  margin-bottom: 88px;
-}
 footer p {
   line-height: 2;
   font-size: 10px;
@@ -1038,9 +1034,33 @@ footer img {
 }
 footer .brand {
   background-color: #E6E7E8;
+  font-size: 10px;
+}
+footer .brand ul {
+  padding-left: 21px;
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
 }
 footer .brand ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   list-style-type: none;
+  vertical-align: middle;
+}
+footer .brand ul li:after {
+  content: "";
+  height: 12px;
+  width: 0;
+  margin: 0 8px;
+  border-right: 1px solid #231f20;
+}
+footer .brand .copyright {
+  background-color: #FFFFFF;
+  line-height: 38px;
 }
 @media (max-width: 639px) {
   footer {
@@ -1059,9 +1079,6 @@ footer .brand ul li {
     display: flex;
     align-items: center;
   }
-  footer.has-cta {
-    margin-bottom: 125px;
-  }
   footer p {
     font-size: 12px;
     text-align: left;
@@ -1076,14 +1093,11 @@ footer .brand ul li {
     padding: 0 30px;
   }
   footer .brand {
-    padding: 0 30px;
     width: 100%;
     position: relative;
+    font-size: 12px;
   }
   footer .brand ul {
-    position: absolute;
-    z-index: 1;
-    right: 30px;
     height: 60px;
     display: flex;
     align-items: center;
@@ -1095,7 +1109,8 @@ footer .brand ul li {
     text-decoration: none;
   }
   footer .brand .copyright {
-    line-height: 60px;
+    font-size: 12px;
+    line-height: 50px;
   }
 }
 
@@ -1109,7 +1124,7 @@ footer .brand ul li {
   display: flex;
   justify-content: center;
   transform: translateY(100%);
-  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 #cta-reservation a {
   text-decoration: none;

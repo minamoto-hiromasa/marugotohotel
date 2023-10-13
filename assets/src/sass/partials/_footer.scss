@@ -2,7 +2,7 @@ footer {
   display: flex;
   justify-content: space-between;
   &.has-cta {
-    margin-bottom: $footer-height-mobile;
+    // margin-bottom: $footer-height-mobile;
   }
   p {
     line-height: 2;
@@ -16,13 +16,32 @@ footer {
   }
   .brand {
     background-color: $color-brand;
+    font-size: 10px;
     ul {
+      padding-left: 21px;
+      margin: 0;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      display: flex;
+      flex-direction: row;
       li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         list-style-type: none;
+        vertical-align: middle;
+        &:after {
+          content: "";
+          height: 12px;
+          width: 0;
+          margin: 0 8px;
+          border-right: 1px solid $black;
+        }
       }
     }
     .copyright {
-
+      background-color: $white;
+      line-height: 38px;
     }
   }
   @include breakpoint(small only) {
@@ -39,7 +58,7 @@ footer {
     display: flex;
     align-items: center;
     &.has-cta {
-      margin-bottom: $footer-height-pc;
+      // margin-bottom: $footer-height-pc;
     }
     p {
       font-size: 12px;
@@ -55,13 +74,10 @@ footer {
       padding: 0 30px;
     }
     .brand {
-      padding: 0 30px;
       width: 100%;
       position: relative;
+      font-size: 12px;
       ul {
-        position: absolute;
-        z-index: 1;
-        right: 30px;
         height: 60px;
         display: flex;
         align-items: center;
@@ -73,7 +89,9 @@ footer {
         }
       }
       .copyright {
-        line-height: 60px;
+        font-size: 12px;
+        line-height: 50px;
+
       }
     }
   }

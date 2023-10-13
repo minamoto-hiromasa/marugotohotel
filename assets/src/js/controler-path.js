@@ -2,7 +2,7 @@ import Glide from '@glidejs/glide';
 import ScrollMagic from 'scrollmagic';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-import { triggerHandlerCta } from './functions';
+import { triggerHandlerCta, triggerThing } from './functions';
 import { swapImageControl } from './helpers';
 
 gsap.registerPlugin(ScrollToPlugin);
@@ -101,6 +101,13 @@ export const controlerPath = {
 					triggerHook: 0.5,
 				})
 					.on('enter leave', triggerHandlerCta)
+					.addTo(controller);
+
+				new ScrollMagic.Scene({
+					triggerElement: '#footer',
+					triggerHook: 1,
+				})
+					.on('enter leave', triggerThing)
 					.addTo(controller);
 			} else {
 				console.warn('CTAのトリガーが設定されていません。');

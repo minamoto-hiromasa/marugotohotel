@@ -4052,6 +4052,10 @@ var controlerPath = {
           triggerElement: '#trigger-cta',
           triggerHook: 0.5
         }).on('enter leave', _functions__WEBPACK_IMPORTED_MODULE_2__.triggerHandlerCta).addTo(controller);
+        new (scrollmagic__WEBPACK_IMPORTED_MODULE_1___default().Scene)({
+          triggerElement: '#footer',
+          triggerHook: 1
+        }).on('enter leave', _functions__WEBPACK_IMPORTED_MODULE_2__.triggerThing).addTo(controller);
       } else {
         console.warn('CTAのトリガーが設定されていません。');
         return false;
@@ -4152,7 +4156,8 @@ var controlerPath = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "triggerHandlerCta": () => (/* binding */ triggerHandlerCta)
+/* harmony export */   "triggerHandlerCta": () => (/* binding */ triggerHandlerCta),
+/* harmony export */   "triggerThing": () => (/* binding */ triggerThing)
 /* harmony export */ });
 function triggerHandlerCta(e) {
   var ctaElem = document.getElementById('cta-reservation');
@@ -4169,6 +4174,17 @@ function triggerHandlerCta(e) {
   } else {
     ctaElem.classList.remove('show');
     sideNav.classList.remove('up');
+  }
+}
+
+function triggerThing(e) {
+  var ctaElem = document.getElementById('cta-reservation');
+  var brandElem = document.getElementsByClassName('brand')[0];
+
+  if (e.type === 'enter') {
+    ctaElem.style.transform = 'translateY(-' + brandElem.offsetHeight + 'px)';
+  } else {
+    ctaElem.style.transform = 'translateY(0px)';
   }
 }
 

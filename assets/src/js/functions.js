@@ -14,4 +14,14 @@ function triggerHandlerCta(e) {
 	}
 }
 
-export { triggerHandlerCta };
+function triggerThing(e) {
+	const ctaElem = document.getElementById('cta-reservation');
+	const brandElem = document.getElementsByClassName('brand')[0];
+	if (e.type === 'enter') {
+		ctaElem.style.transform =
+			'translateY(-' + brandElem.offsetHeight + 'px)';
+	} else {
+		ctaElem.style.transform = 'translateY(0px)';
+	}
+}
+export { triggerHandlerCta, triggerThing };
