@@ -164,10 +164,37 @@ class swapImageControl {
 		this.figures[this.index].style.display = 'block';
 	}
 }
+
+class MoviePlayer {
+	constructor(idName) {
+		this.idName = idName;
+	}
+	init() {
+		const container = document.getElementById(this.idName);
+		if (!container) {
+			console.warn('ムービーは設定されていません');
+			return false;
+		}
+		const btnVolume = container.getElementsByClassName('btn-volume')[0];
+		const moviePc = container.getElementsByClassName('movie-pc')[0];
+		const movieMobile = container.getElementsByClassName('movie-mobile')[0];
+
+		btnVolume.addEventListener('click', () => {
+			console.log(moviePc.muted);
+			moviePc.muted = movieMobile.muted = !moviePc.muted;
+			if (moviePc.muted) {
+				btnVolume.classList.add('muted');
+			} else {
+				btnVolume.classList.remove('muted');
+			}
+		});
+	}
+}
 export {
 	setupGallerySlider,
 	observeNodes,
 	isQueryMatch,
 	setupExpandContent,
 	swapImageControl,
+	MoviePlayer,
 };

@@ -3,7 +3,7 @@ import ScrollMagic from 'scrollmagic';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { triggerHandlerCta, triggerThing } from './functions';
-import { swapImageControl } from './helpers';
+import { swapImageControl, MoviePlayer } from './helpers';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -113,6 +113,10 @@ export const controlerPath = {
 				console.warn('CTAのトリガーが設定されていません。');
 				return false;
 			}
+
+			// ムービーコントロール追加
+			const movie = new MoviePlayer('key-movie');
+			movie.init();
 		},
 	},
 	home: {

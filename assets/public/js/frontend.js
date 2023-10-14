@@ -4059,7 +4059,11 @@ var controlerPath = {
       } else {
         console.warn('CTAのトリガーが設定されていません。');
         return false;
-      }
+      } // ムービーコントロール追加
+
+
+      var movie = new _helpers__WEBPACK_IMPORTED_MODULE_3__.MoviePlayer('key-movie');
+      movie.init();
     }
   },
   home: {
@@ -4205,7 +4209,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "observeNodes": () => (/* binding */ observeNodes),
 /* harmony export */   "isQueryMatch": () => (/* binding */ isQueryMatch),
 /* harmony export */   "setupExpandContent": () => (/* binding */ setupExpandContent),
-/* harmony export */   "swapImageControl": () => (/* binding */ swapImageControl)
+/* harmony export */   "swapImageControl": () => (/* binding */ swapImageControl),
+/* harmony export */   "MoviePlayer": () => (/* binding */ MoviePlayer)
 /* harmony export */ });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -4407,6 +4412,42 @@ var swapImageControl = /*#__PURE__*/function () {
   }]);
 
   return swapImageControl;
+}();
+
+var MoviePlayer = /*#__PURE__*/function () {
+  function MoviePlayer(idName) {
+    _classCallCheck(this, MoviePlayer);
+
+    this.idName = idName;
+  }
+
+  _createClass(MoviePlayer, [{
+    key: "init",
+    value: function init() {
+      var container = document.getElementById(this.idName);
+
+      if (!container) {
+        console.warn('ムービーは設定されていません');
+        return false;
+      }
+
+      var btnVolume = container.getElementsByClassName('btn-volume')[0];
+      var moviePc = container.getElementsByClassName('movie-pc')[0];
+      var movieMobile = container.getElementsByClassName('movie-mobile')[0];
+      btnVolume.addEventListener('click', function () {
+        console.log(moviePc.muted);
+        moviePc.muted = movieMobile.muted = !moviePc.muted;
+
+        if (moviePc.muted) {
+          btnVolume.classList.add('muted');
+        } else {
+          btnVolume.classList.remove('muted');
+        }
+      });
+    }
+  }]);
+
+  return MoviePlayer;
 }();
 
 

@@ -1209,6 +1209,58 @@ footer .brand .copyright {
   background-position: center;
 }
 
+.key-movie {
+  position: relative;
+}
+.key-movie video {
+  width: 100%;
+}
+.key-movie video.movie-pc {
+  display: none;
+}
+.key-movie video.movie-mobile {
+  display: block;
+}
+.key-movie .movie-control {
+  position: absolute;
+  bottom: 21px;
+  right: 17px;
+  z-index: 1;
+}
+.key-movie .movie-control button {
+  padding: 0;
+  border: none;
+  font-size: 0;
+  width: 31px;
+  height: 21px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.key-movie .movie-control button:focus {
+  border: none;
+  outline: none;
+}
+.key-movie .movie-control button.btn-volume {
+  background-color: transparent;
+  background-image: url(../images/volume-unmute.png);
+}
+.key-movie .movie-control button.muted {
+  background-image: url(../images/volume-mute.png);
+}
+@media (min-width: 640px) {
+  .key-movie video.movie-pc {
+    display: block;
+  }
+  .key-movie video.movie-mobile {
+    display: none;
+  }
+  .key-movie .movie-control {
+    bottom: 25px;
+    right: 29px;
+  }
+}
+
 #section-concept .title h2 {
   font-size: 28px;
   margin-bottom: 0;

@@ -78,7 +78,33 @@
 
     // アイキャッチ画像取得
     $eyeCatchImage = get_the_post_thumbnail_url();
-    $eyeCatchHtml = '<div class="eye-catch" style="background-image: url(' . $eyeCatchImage . ');"></div>'
+    $eyeCatchHtml = '<div class="eye-catch" style="background-image: url(' . $eyeCatchImage . ');"></div>';
+
+    // キービジュアル動画取得
+    $acfMoviePC = get_field('movie-pc', $post->ID);
+    $acfPosterPC = get_field('poster-pc', $post->ID);
+    $acfMovieMobile = get_field('movie-mobile', $post->ID);
+    $acfPosterMobile = get_field('poster-mobile', $post->ID);
+    $isMovieAvailable = !empty($acfMoviePC) && !empty($acfMovieMobile);
+    if($isMovieAvailable) {
+      $movieHtml = '
+        <div id="key-movie" class="key-movie play">
+          <div class="movie-control">
+            <button class="btn-volume muted">音声</button>
+          </div>
+          <video
+            class="movie-pc" autoplay muted loop type="video/mp4"
+            src="' . $acfMoviePC['url'] . '"
+            poster="' . $acfPosterPC['url'] . '">
+          </video>
+          <video
+            class="movie-mobile" autoplay muted loop type="video/mp4"
+            src="' . $acfMovieMobile['url'] . '"
+            poster="' . $acfPosterMobile['url'] . '">
+          </video>
+        </div>';
+    }
+
 ?>
   <div class="wrapper <?php echo $storiesClass?>">
     <div id="sticky-wrap" class="sticky-wrap">
@@ -117,7 +143,9 @@
         <div id="content-wrap" class="content-wrap">
           <?php
             // アイキャッチ画像が設定されていない場合は、共通のスライダーを表示。それ以外はアイキャッチ画像を表示
-            if ($eyeCatchImage == null) {
+            if ($isMovieAvailable) {
+              echo $movieHtml;
+            } else if ($eyeCatchImage == null) {
               $page = get_page_by_path("key-visual-pc", OBJECT, "key-visual");
               $content = apply_filters('the_content', $page->post_content);
               echo $content;
