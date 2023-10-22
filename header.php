@@ -81,10 +81,10 @@
     $eyeCatchHtml = '<div class="eye-catch" style="background-image: url(' . $eyeCatchImage . ');"></div>';
 
     // キービジュアル動画取得
-    $acfMoviePC = get_field('movie-pc', $post->ID);
-    $acfPosterPC = get_field('poster-pc', $post->ID);
-    $acfMovieMobile = get_field('movie-mobile', $post->ID);
-    $acfPosterMobile = get_field('poster-mobile', $post->ID);
+    $acfMoviePC = is_null($post) ? "" : get_field('movie-pc', $post->ID);
+    $acfPosterPC = is_null($post) ? "" : get_field('poster-pc', $post->ID);
+    $acfMovieMobile = is_null($post) ? "" : get_field('movie-mobile', $post->ID);
+    $acfPosterMobile = is_null($post) ? "" : get_field('poster-mobile', $post->ID);
     $isMovieAvailable = !empty($acfMoviePC) && !empty($acfMovieMobile);
     if($isMovieAvailable) {
       $movieHtml = '
