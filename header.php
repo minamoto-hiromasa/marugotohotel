@@ -84,7 +84,7 @@
             poster="' . $acfPosterPC['url'] . '">
           </video>
           <video
-            class="movie-mobile" autoplay muted loop type="video/mp4"
+            class="movie-mobile" playsinline autoplay muted loop type="video/mp4"
             src="' . $acfMovieMobile['url'] . '"
             poster="' . $acfPosterMobile['url'] . '">
           </video>
