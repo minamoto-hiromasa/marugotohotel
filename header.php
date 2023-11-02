@@ -13,13 +13,6 @@
 <body <?php body_class(); ?>>
 
   <?php
-
-    // WordPress 5.2 wp_body_open implementation
-    // if ( function_exists( 'wp_body_open' ) ) {
-    //     wp_body_open();
-    // } else {
-    //     do_action( 'wp_body_open' );
-    // }
     global $post;
     $campaignPageSlug = "campaign";
     $storiesPageSlug = "stories-of-ome-line";
@@ -28,14 +21,6 @@
     $storiesClass = (is_page($storiesPageSlug)) ? "page-stories" : "";
     $storiesClass .= " page-" . $slug;
 
-
-    function isPageAnchor($url) {
-      $keyword = 'http';
-      if (strpos($url, $keyword) === false) {
-        return true;
-      }
-      return false;
-    }
 
     // グローバルメニューHTML作成
     $menuID = "main-menu";
@@ -58,7 +43,8 @@
     $campaignPageUrl = get_permalink( get_page_by_path($campaignPageSlug));
     // 最初のキャンペーンメニューは特殊なスタイル
     $campaignFirstMenu = array_shift($campaginMenu);
-    $campaignUrlPrefix = (!is_page($campaignPageSlug) && isPageAnchor($campaignFirstMenu -> url)) ? $campaignPageUrl : "";
+    $campaignUrlPrefix = (!is_page($campaignPageSlug) && isPageAnchor($campaignFirstMenu -> url))
+      ? $campaignPageUrl : "";
     $campaginNavHtml = '<div class="nav-inner">';
     $campaginNavHtml .= '<a href="' . $campaignUrlPrefix . $campaignFirstMenu -> url . '" class="tag-new-wrap">';
     $campaginNavHtml .= '<span class="tag-new-inner">';
@@ -122,8 +108,7 @@
             <nav>
               <?php
                 // キャンペーンページの表示設定があればメニューを表示する
-                $campaignID = get_id_by_slug('campaign');
-                if (get_field('campaign-available', $campaignID)) {
+                if (isCampaignAvailable()) {
                   echo $campaginNavHtml;
                 }
               ?>
@@ -142,10 +127,11 @@
         </aside>
         <div id="content-wrap" class="content-wrap">
           <?php
+            echo keyVisualLink('open');
             // アイキャッチ画像が設定されていない場合は、共通のスライダーを表示。それ以外はアイキャッチ画像を表示
             if ($isMovieAvailable) {
               echo $movieHtml;
-            } else if ($eyeCatchImage == null) {
+            } elseif ($eyeCatchImage == null) {
               $page = get_page_by_path("key-visual-pc", OBJECT, "key-visual");
               $content = apply_filters('the_content', $page->post_content);
               echo $content;
@@ -155,5 +141,6 @@
             } else {
               echo $eyeCatchHtml;
             }
+            echo keyVisualLink('close');
           ?>
           <div id="reading-content">

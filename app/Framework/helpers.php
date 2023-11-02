@@ -20,3 +20,32 @@
         return null;
     }
   }
+
+  function isPageAnchor($url) {
+    $keyword = 'http';
+    if (strpos($url, $keyword) === false) {
+      return true;
+    }
+    return false;
+  }
+
+  function isCampaignAvailable() {
+    $campaignID = get_id_by_slug('campaign');
+    if (get_field('campaign-available', $campaignID)) {
+      return get_field('campaign-available', $campaignID);
+    } else {
+      return false;
+    }
+  }
+
+  function keyVisualLink($arg) {
+    $homeID = get_id_by_slug('home');
+    if (isCampaignAvailable() && !is_page('home')) { return ''; }
+    if (!get_field('key-visual-url', $homeID)) { return ''; }
+    if ($arg === 'open') {
+      $anchorHtml = '<a href="' . get_field('key-visual-url', $homeID) . '">';
+    } else {
+      $anchorHtml = '</a>';
+    }
+    return $anchorHtml;
+  }
