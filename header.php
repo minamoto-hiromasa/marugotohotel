@@ -103,8 +103,10 @@
         </header>
         <aside class="side-nav" data-sticky-container>
           <div class="side-stick" data-sticky data-btm-anchor="content-wrap:bottom">
-            <img class="logo" src="<?php echo get_template_directory_uri()?>/assets/public/images/logo.svg"
-              alt="沿線まるごと HOTEL PROJECT" srcset="">
+            <a href="<?php echo home_url(); ?>">
+              <img class="logo" src="<?php echo get_template_directory_uri()?>/assets/public/images/logo.svg"
+                alt="沿線まるごと HOTEL PROJECT" srcset="">
+            </a>
             <nav>
               <?php
                 // キャンペーンページの表示設定があればメニューを表示する

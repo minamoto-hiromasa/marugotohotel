@@ -24,7 +24,7 @@ const projectFiles = {
 		port: 3000,
 		mode: 'proxy', // proxy | server
 		server: { baseDir: ['public'] }, // can be ignored if using proxy
-		proxy: 'http://192.168.1.23:9030',
+		proxy: 'http://192.168.1.11:9030',
 		// BrowserSync will automatically watch for changes to any files connected to our entry,
 		// including both JS and Sass files. We can use this property to tell BrowserSync to watch
 		// for other types of files, in this case PHP files, in our project.

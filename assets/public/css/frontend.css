@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&display=swap);
 @charset "UTF-8";
 /**
 * Importing by selector filtering example
@@ -392,7 +393,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 .font-title {
-  font-family: "A1 Mincho";
+  font-family: "Shippori Mincho", serif;
+  font-weight: normal;
 }
 
 .sticky-wrap {
@@ -1273,7 +1275,7 @@ footer .brand .copyright {
   font-size: 24px;
   font-weight: normal;
   padding-bottom: 12px;
-  line-height: 1.5;
+  line-height: 1.67;
 }
 #section-concept .title p {
   font-size: 18px;
@@ -1296,6 +1298,7 @@ footer .brand .copyright {
 @media (max-width: 639px) {
   #section-concept .title {
     margin: 30px 0 20px;
+    line-height: 1.67;
   }
 }
 
@@ -1512,6 +1515,21 @@ footer .brand .copyright {
 .page-campaign dl dt {
   font-weight: normal;
 }
+@media (max-width: 639px) {
+  .page-campaign #section-concept h4 {
+    font-size: 20px;
+    line-height: 1.85;
+  }
+  .page-campaign article h3 {
+    line-height: 1.55;
+    margin-top: 0;
+  }
+  .page-campaign article .title {
+    font-size: 24px;
+    line-height: 1.54;
+    margin-bottom: 14px;
+  }
+}
 @media (min-width: 640px) {
   .page-campaign article {
     max-width: 686px;
@@ -1521,6 +1539,7 @@ footer .brand .copyright {
   }
   .page-campaign article h4 {
     font-size: 21px;
+    line-height: 1.85;
   }
   .page-campaign .glide__slide .image {
     height: 400px;
