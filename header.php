@@ -96,7 +96,9 @@
     <div id="sticky-wrap" class="sticky-wrap">
       <div id="body-content" class="body-content">
         <header class="mobile-header">
-          <div class="logo"></div>
+          <a href="<?php echo home_url(); ?>">
+            <div class="logo"></div>
+          </a>
           <button class="toggle-menu">
             <span class="burger"></span>
           </button>
