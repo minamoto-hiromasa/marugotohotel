@@ -860,6 +860,7 @@ aside.side-nav nav .nav-inner > *:not(.tag-new-wrap) {
   }
   aside.side-nav nav .nav-inner a {
     font-size: 14px;
+    margin-left: 0 !important;
   }
   aside.side-nav nav .nav-inner .has-dash {
     font-weight: bold;
