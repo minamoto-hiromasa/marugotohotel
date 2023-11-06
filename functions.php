@@ -305,8 +305,10 @@ if ( ! class_exists( 'wp_bootstrap_navwalker' )) {
     require_once(get_template_directory() . '/inc/wp_bootstrap_navwalker.php');
 }
 
-require_once get_template_directory() . '/app/Framework/helpers.php';
-require_once get_template_directory() . '/app/Framework/shortcode.php';
+require_once get_template_directory() . '/app/config/variables.php';
+require_once get_template_directory() . '/app/lib/helpers.php';
+require_once get_template_directory() . '/app/lib/shortcode.php';
+require_once get_template_directory() . '/app/lib/header.php';
 require_once get_template_directory() . '/app/setup/hooks.php';
 require_once get_template_directory() . '/app/setup/navigation.php';
 require_once get_template_directory() . '/app/setup/header.php';

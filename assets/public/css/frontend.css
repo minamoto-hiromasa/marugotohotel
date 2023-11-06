@@ -753,42 +753,30 @@ aside.side-nav nav a {
   display: block;
   text-align: center;
   font-size: 14px;
-  padding: 17px 0;
+  padding: 10px 0;
 }
 aside.side-nav nav .active.im-here span:after,
 aside.side-nav nav a.im-here span:after {
   transform: scaleX(1);
 }
-aside.side-nav nav .active span,
-aside.side-nav nav a span {
-  display: inline-block;
-  position: relative;
-}
-aside.side-nav nav .active span:before,
-aside.side-nav nav a span:before {
-  content: "";
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  width: 100%;
-  margin-top: 5px;
-  position: absolute;
-  bottom: 0;
-}
-aside.side-nav nav .active span:after,
-aside.side-nav nav a span:after {
-  content: "";
-  border-bottom: 1px solid #231f20;
-  width: 100%;
-  margin-top: 5px;
-  display: block;
-  transform: scaleX(0);
-  transform-origin: left top;
-  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-}
 aside.side-nav nav .stories img {
   width: 137px;
 }
-aside.side-nav nav .facebook img {
-  width: 20px;
+aside.side-nav nav .sns-links {
+  display: flex;
+  margin: 8px 0 0;
+  padding: 0;
+}
+aside.side-nav nav .sns-links li {
+  list-style-type: none;
+}
+aside.side-nav nav .sns-links a {
+  padding: 0;
+  margin-right: 20px;
+}
+aside.side-nav nav .sns-links img {
+  height: 18px;
+  width: auto;
 }
 aside.side-nav nav .active span:after {
   transform: scaleX(1);
@@ -867,9 +855,40 @@ aside.side-nav nav .nav-inner > *:not(.tag-new-wrap) {
   aside.side-nav nav a {
     font-size: 15px;
   }
+  aside.side-nav nav .nav-inner {
+    margin-bottom: 15px;
+  }
+  aside.side-nav nav .nav-inner a {
+    font-size: 14px;
+  }
+  aside.side-nav nav .nav-inner .has-dash {
+    font-weight: bold;
+  }
+  aside.side-nav nav .nav-inner .has-dash span {
+    position: relative;
+  }
+  aside.side-nav nav .nav-inner .has-dash span:before, aside.side-nav nav .nav-inner .has-dash span:after {
+    content: "";
+    width: 11px;
+    height: 0;
+    border-bottom: 1px solid #999;
+    position: absolute;
+    left: -16px;
+    top: 50%;
+    margin: 0;
+  }
+  aside.side-nav nav .nav-inner .has-dash span:after {
+    left: auto;
+    right: -16px;
+    transform: scaleX(1);
+  }
   aside.side-nav nav .nav-inner a,
 aside.side-nav nav .nav-inner .has-dash {
-    display: none;
+    font-size: 15px;
+  }
+  aside.side-nav nav .nav-inner a:before,
+aside.side-nav nav .nav-inner .has-dash:before {
+    content: none;
   }
   aside.side-nav nav .nav-inner .tag-new-wrap {
     justify-content: center;
@@ -879,18 +898,20 @@ aside.side-nav nav .nav-inner .has-dash {
     font-size: 15px;
     position: relative;
   }
-  aside.side-nav nav .nav-inner .tag-new-wrap .tag-new-inner:before {
+  aside.side-nav nav .nav-inner .tag-new-wrap .tag-new-inner:after {
     content: "";
-    display: block;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     width: 100%;
-    margin-top: 5px;
+    height: 0;
+    border-bottom: 1px solid #231f20;
     position: absolute;
-    bottom: -6px;
+    bottom: 0;
     left: 0;
   }
-  aside.side-nav nav .nav-inner .tag-new-wrap b {
-    font-weight: normal;
+  aside.side-nav nav .sns-links {
+    justify-content: center;
+  }
+  aside.side-nav #main-menu {
+    margin-bottom: 28px;
   }
   aside.side-nav .side-stick {
     top: 0 !important;
@@ -938,6 +959,31 @@ aside.side-nav nav a img {
   aside.side-nav nav .active span,
 aside.side-nav nav a span {
     width: 100%;
+  }
+  aside.side-nav nav a span,
+aside.side-nav nav .active span {
+    display: inline-block;
+    position: relative;
+  }
+  aside.side-nav nav a span:before,
+aside.side-nav nav .active span:before {
+    content: "";
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    width: 100%;
+    margin-top: 5px;
+    position: absolute;
+    bottom: 0;
+  }
+  aside.side-nav nav a span:after,
+aside.side-nav nav .active span:after {
+    content: "";
+    border-bottom: 1px solid #231f20;
+    width: 100%;
+    margin-top: 5px;
+    display: block;
+    transform: scaleX(0);
+    transform-origin: left top;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   }
 }
 

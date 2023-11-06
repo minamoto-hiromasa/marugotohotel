@@ -14,36 +14,31 @@
 
   <?php
     global $post;
-    $campaignPageSlug = "campaign";
-    $storiesPageSlug = "stories-of-ome-line";
-    $dmoPageSlug = "dmo";
+    $config = include get_template_directory() . '/app/config/variables.php';
     $slug = is_null($post) ? "POST-DOESNOT-EXIST" : $post->post_name;
-    $storiesClass = (is_page($storiesPageSlug)) ? "page-stories" : "";
+    $storiesClass = (is_page($config['storiesPageSlug'])) ? "page-stories" : "";
     $storiesClass .= " page-" . $slug;
 
-
     // グローバルメニューHTML作成
-    $menuID = "main-menu";
-    $mainMenu = wp_get_nav_menu_items($menuID);
+    $mainMenu = wp_get_nav_menu_items($config['menuMain']);
     $navHtml = '<div id="main-menu">';
     foreach($mainMenu as $item){
+      $setImHereStyle = (strpos($item -> url, $post -> post_name)) ? 'im-here' : '';
       $mainUrlPrefix = (
-        is_page(array($campaignPageSlug, $storiesPageSlug, $dmoPageSlug)) &&
+        is_page(array($config['campaignPageSlug'], $config['storiesPageSlug'], $config['dmoPageSlug'])) &&
         isPageAnchor($item -> url)
       ) ? home_url( '/' ) : "";
       $navHtml .=
-        '<a class="' . str_replace("#", "menu-", $item -> url) . '"
-        href="' . $mainUrlPrefix . $item -> url . '"><span>' . $item -> title . '</span></a>';
+        '<a class="' . $setImHereStyle . '" href="' . $mainUrlPrefix . $item -> url . '"><span>' . $item -> title . '</span></a>';
     }
     $navHtml .= '</div>';
 
     // キャンペーンメニューHTML作成
-    $campaignMenuID = "campaign-menu";
-    $campaginMenu = wp_get_nav_menu_items($campaignMenuID);
-    $campaignPageUrl = get_permalink( get_page_by_path($campaignPageSlug));
+    $campaginMenu = wp_get_nav_menu_items($config['menuCampaign']);
+    $campaignPageUrl = get_permalink( get_page_by_path($config['campaignPageSlug']));
     // 最初のキャンペーンメニューは特殊なスタイル
     $campaignFirstMenu = array_shift($campaginMenu);
-    $campaignUrlPrefix = (!is_page($campaignPageSlug) && isPageAnchor($campaignFirstMenu -> url))
+    $campaignUrlPrefix = (!is_page($config['campaignPageSlug']) && isPageAnchor($campaignFirstMenu -> url))
       ? $campaignPageUrl : "";
     $campaginNavHtml = '<div class="nav-inner">';
     $campaginNavHtml .= '<a href="' . $campaignUrlPrefix . $campaignFirstMenu -> url . '" class="tag-new-wrap">';
@@ -55,7 +50,8 @@
 
     // ２つ目以降のキャンペーンメニュー
     foreach($campaginMenu as $item){
-      $campaignUrlPrefix = (!is_page($campaignPageSlug) && isPageAnchor($item -> url)) ? $campaignPageUrl : "";
+      $campaignUrlPrefix =
+        (!is_page($config['campaignPageSlug']) && isPageAnchor($item -> url)) ? $campaignPageUrl : "";
       $campaginNavHtml .=
         '<a class="' . $item -> classes[0] . '"
         href="' . $campaignUrlPrefix . $item -> url . '"><span>' . $item -> title . '</span></a>';
@@ -121,11 +117,12 @@
                 // グローバルメニュー
                 echo $navHtml;
               ?>
-              <a href="https://www.facebook.com/ensenmarugoto" class="facebook" target="_blank"
-                rel="noopener noreferrer">
-                <img src="<?php echo get_template_directory_uri()?>/assets/public/images/logo-facebook.svg"
-                  alt="facebook" />
-              </a>
+              <ul class="sns-links">
+                <li><?php echo makeSnsLinks('facebook'); ?></li>
+                <li><?php echo makeSnsLinks('instagram'); ?></li>
+                <li><?php echo makeSnsLinks('youtube'); ?></li>
+                <li><?php echo makeSnsLinks('twitter'); ?></li>
+              </ul>
             </nav>
           </div>
         </aside>

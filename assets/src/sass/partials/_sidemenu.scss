@@ -17,7 +17,7 @@ aside.side-nav {
       display: block;
       text-align: center;
       font-size: 14px;
-      padding: 17px 0;
+      padding: 10px 0;
       &.im-here {
         span {
           &:after {
@@ -26,9 +26,9 @@ aside.side-nav {
         }
       }
       span {
-        display: inline-block;
-        position: relative;
-        @include magellan-line();
+        // display: inline-block;
+        // position: relative;
+        // @include magellan-line();
       }
     }
     .stories {
@@ -36,9 +36,20 @@ aside.side-nav {
         width: 137px;
       }
     }
-    .facebook {
+    .sns-links {
+      display: flex;
+      margin: 8px 0 0;
+      padding: 0;
+      li {
+        list-style-type: none;
+      }
+      a {
+        padding: 0;
+        margin-right: 20px;
+      }
       img {
-        width: 20px;
+        height: 18px;
+        width: auto;
       }
     }
     .active {
@@ -133,9 +144,39 @@ aside.side-nav {
         font-size: 15px;
       }
       .nav-inner {
+        margin-bottom: 15px;
+        a {
+          font-size: 14px;
+        }
+        .has-dash {
+          font-weight: bold;
+          span {
+            position: relative;
+            &:before,
+            &:after {
+              content: "";
+              width: 11px;
+              height: 0;
+              border-bottom: 1px solid #999;
+              position: absolute;
+              left: -16px;
+              top: 50%;
+              margin: 0;
+            }
+            &:after {
+              left: auto;
+              right: -16px;
+              transform: scaleX(1);
+            }
+          }
+        }
         a,
         .has-dash {
-          display: none;
+          // display: none;
+          font-size: 15px;
+          &:before {
+            content: none;
+          }
         }
         .tag-new-wrap {
           justify-content: center;
@@ -143,22 +184,24 @@ aside.side-nav {
           .tag-new-inner {
             font-size: 15px;
             position: relative;
-            &:before {
-              content: '';
-              display: block;
-              border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            &:after {
+              content: "";
               width: 100%;
-              margin-top: 5px;
+              height: 0;
+              border-bottom: 1px solid $black;
               position: absolute;
-              bottom: -6px;
+              bottom: 0;
               left: 0;
             }
           }
-          b {
-            font-weight: normal;
-          }
         }
       }
+      .sns-links {
+        justify-content: center;
+      }
+    }
+    #main-menu {
+      margin-bottom: 28px;
     }
     .side-stick {
       top: 0!important;
@@ -204,6 +247,14 @@ aside.side-nav {
         }
         span {
           width: 100%;
+        }
+      }
+      a,
+      .active {
+        span {
+          display: inline-block;
+          position: relative;
+          @include magellan-line();
         }
       }
     }
