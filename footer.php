@@ -34,13 +34,29 @@
   </div>
   <div class="brand">
     <ul>
+      <?php
+        if (get_field('trip-tc', $page->ID)) :
+      ?>
       <li>
         <a href="<?php echo get_field('trip-tc', $page->ID); ?>" target="_blank" rel="noopener noreferrer">旅行条件書</a>
       </li>
-      <!--li>
+      <?php endif ?>
+      <?php
+        if (get_field('trip-registration', $page->ID)) :
+      ?>
+      <li>
         <a href="<?php echo get_field('trip-registration', $page->ID); ?>" target="_blank"
           rel="noopener noreferrer">旅行業登録票</a>
-      </li-->
+      </li>
+      <?php endif ?>
+      <?php
+        if (get_field('trip-terms', $page->ID)) :
+      ?>
+      <li>
+        <a href="<?php echo get_field('trip-terms', $page->ID); ?>" target="_blank"
+          rel="noopener noreferrer">個人情報保護方針</a>
+      </li>
+      <?php endif ?>
     </ul>
     <div class="copyright">Copyright © 2023 沿線まるごと株式会社. All Right Reserved.</div>
   </div>

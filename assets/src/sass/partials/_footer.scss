@@ -18,12 +18,11 @@ footer {
     background-color: $color-brand;
     font-size: 10px;
     ul {
-      padding-left: 21px;
+      padding: 20px;
       margin: 0;
-      padding-top: 20px;
-      padding-bottom: 20px;
       display: flex;
       flex-direction: row;
+      justify-content: flex-end;
       li {
         display: flex;
         flex-direction: row;
@@ -36,6 +35,15 @@ footer {
           width: 0;
           margin: 0 8px;
           border-right: 1px solid $black;
+        }
+        &:first-child {
+          &:before {
+            content: "";
+            height: 12px;
+            width: 0;
+            margin: 0 8px 0 0;
+            border-right: 1px solid $black;
+          }
         }
       }
     }
@@ -82,7 +90,9 @@ footer {
         display: flex;
         align-items: center;
         li {
-          margin: 0 25px;
+          &:first-child {
+            margin: 0 0 0 25px;
+          }
         }
         a {
           text-decoration: none;

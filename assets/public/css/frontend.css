@@ -1086,12 +1086,11 @@ footer .brand {
   font-size: 10px;
 }
 footer .brand ul {
-  padding-left: 21px;
+  padding: 20px;
   margin: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 }
 footer .brand ul li {
   display: flex;
@@ -1105,6 +1104,13 @@ footer .brand ul li:after {
   height: 12px;
   width: 0;
   margin: 0 8px;
+  border-right: 1px solid #231f20;
+}
+footer .brand ul li:first-child:before {
+  content: "";
+  height: 12px;
+  width: 0;
+  margin: 0 8px 0 0;
   border-right: 1px solid #231f20;
 }
 footer .brand .copyright {
@@ -1151,8 +1157,8 @@ footer .brand .copyright {
     display: flex;
     align-items: center;
   }
-  footer .brand ul li {
-    margin: 0 25px;
+  footer .brand ul li:first-child {
+    margin: 0 0 0 25px;
   }
   footer .brand ul a {
     text-decoration: none;
