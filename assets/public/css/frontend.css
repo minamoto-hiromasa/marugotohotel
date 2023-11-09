@@ -1651,59 +1651,104 @@ footer .brand .copyright {
   left: 0;
 }
 
+.gutter-expand, .page-dmo .course-wrap .swap-images,
+.page-dmo .course-wrap .gallery {
+  margin-right: -22px;
+  margin-left: -22px;
+}
+
 .page-dmo h4 {
   font-size: 22px;
 }
+.page-dmo .content-title {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 16px 0;
+  margin-bottom: 22px;
+}
+.page-dmo .content-title.center > div {
+  justify-content: center;
+}
+.page-dmo .content-title > div {
+  display: flex;
+  justify-content: space-between;
+}
+.page-dmo .content-title h4 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+.page-dmo .content-title h5 {
+  font-size: 20px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+.page-dmo .content-title p {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
 .page-dmo .link-list {
-  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
 }
 .page-dmo .link-list li {
   list-style-type: none;
+  display: inline-block;
+  margin: 0 0 23px 0;
+}
+.page-dmo .link-list li:nth-child(2n-1) {
+  margin-right: 20px;
 }
 .page-dmo .link-list a {
-  position: relative;
-  display: inline-block;
-  text-align: left;
-  font-size: 22px;
-  text-decoration: none;
-  line-height: 1;
-  margin-bottom: 12px;
-  padding-right: 28px;
-}
-.page-dmo .link-list a:before {
-  content: "";
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  width: 100%;
-  margin-top: 5px;
-  position: absolute;
-  bottom: 0;
-}
-.page-dmo .link-list a:after {
-  content: "";
-  border-bottom: 1px solid #231f20;
-  width: 100%;
-  margin-top: 5px;
   display: block;
-  transform: scaleX(0);
-  transform-origin: left top;
-  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
-.page-dmo .link-list a:hover:after {
-  transform: scaleX(1);
+.page-dmo .link-list img {
+  width: 138px !important;
 }
-.page-dmo .link-download {
-  background-color: rgba(0, 105, 56, 0.5);
+.page-dmo .btn-round {
+  display: flex;
+  justify-content: center;
+}
+.page-dmo .btn-round > div {
+  border: 1px solid white;
+  border-radius: 6px;
+  margin: 4px;
+}
+.page-dmo .btn-round a {
+  display: block;
   transition: background-color 0.3s linear;
-  padding: 14px;
-}
-.page-dmo .link-download:hover {
-  background-color: rgba(0, 105, 56, 0.7);
-}
-.page-dmo .link-download a {
+  background-color: rgba(0, 105, 56, 0.5);
   text-decoration: none;
   font-weight: 600;
   color: #FFFFFF;
   font-size: 14px;
+  border-radius: 8px;
+  position: relative;
+  padding: 8px 14px 8px 30px;
+}
+.page-dmo .btn-round a:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid white;
+  border-radius: 6px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  margin: 4px;
+}
+.page-dmo .btn-round a:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  background: url(../images/icon-download.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 16px;
 }
 .page-dmo .link-detail a {
   text-decoration: none;
@@ -1722,8 +1767,17 @@ footer .brand .copyright {
   display: none;
   position: absolute;
 }
-.page-dmo #content-wrap .swap-content dl dt {
+.page-dmo #content-wrap .swap-content-group {
+  margin: 0 -22px;
+}
+.page-dmo #content-wrap .swap-content dl div {
+  background-color: rgba(0, 105, 56, 0.2);
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+.page-dmo #content-wrap .swap-content dl div:hover {
+  background-color: rgba(0, 105, 56, 0.5);
 }
 
 #section-campagin {

@@ -10901,12 +10901,9 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
 /*!***************************************!*\
   !*** ./assets/src/sass/frontend.scss ***!
   \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Undefined variable.\n   ╷\n70 │       background-color: rgb($color-green-rgb, 0.5);\n   │                             ^^^^^^^^^^^^^^^^\n   ╵\n  assets/src/sass/pages/dmo.scss 70:29  @import\n  assets/src/sass/frontend.scss 38:9    root stylesheet\n    at processResult (/Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/webpack/lib/NormalModule.js:701:19)\n    at /Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/webpack/lib/NormalModule.js:807:5\n    at /Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/loader-runner/lib/LoaderRunner.js:399:11\n    at /Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/loader-runner/lib/LoaderRunner.js:251:18\n    at context.callback (/Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at /Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/sass-loader/dist/index.js:62:7\n    at Function.call$2 (/Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/sass/sass.dart.js:93650:16)\n    at _render_closure1.call$2 (/Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/sass/sass.dart.js:82010:12)\n    at _RootZone.runBinary$3$3 (/Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/sass/sass.dart.js:27550:18)\n    at _FutureListener.handleError$1 (/Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/sass/sass.dart.js:26099:19)");
 
 /***/ }),
 
