@@ -140,19 +140,14 @@ aside.side-nav {
       display: none;
     }
     nav {
-      text-align: center;
       a {
         font-size: 15px;
       }
       .nav-inner {
-        display: inline-block;
         margin-bottom: 15px;
         a {
           font-size: 14px;
           margin-left: 0!important;
-          &:not(.tag-new-wrap, .has-dash) {
-            text-align: left;
-          }
         }
         .has-dash {
           font-weight: bold;
