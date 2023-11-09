@@ -852,22 +852,15 @@ aside.side-nav nav .nav-inner > *:not(.tag-new-wrap) {
   aside.side-nav .logo {
     display: none;
   }
-  aside.side-nav nav {
-    text-align: center;
-  }
   aside.side-nav nav a {
     font-size: 15px;
   }
   aside.side-nav nav .nav-inner {
-    display: inline-block;
     margin-bottom: 15px;
   }
   aside.side-nav nav .nav-inner a {
     font-size: 14px;
     margin-left: 0 !important;
-  }
-  aside.side-nav nav .nav-inner a:not(.tag-new-wrap, .has-dash) {
-    text-align: left;
   }
   aside.side-nav nav .nav-inner .has-dash {
     font-weight: bold;
