@@ -1,6 +1,6 @@
 <?php
 return [
-    'campaignPageSlug' => 'campagin',
+    'campaignPageSlug' => 'campaign',
     'storiesPageSlug' => 'stories-of-ome-line',
     'dmoPageSlug' => 'dmo',
     'menuMain' => 'main-menu',
