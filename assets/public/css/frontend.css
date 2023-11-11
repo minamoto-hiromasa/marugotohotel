@@ -1086,12 +1086,11 @@ footer .brand {
   font-size: 10px;
 }
 footer .brand ul {
-  padding-left: 21px;
+  padding: 20px;
   margin: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 }
 footer .brand ul li {
   display: flex;
@@ -1107,6 +1106,13 @@ footer .brand ul li:after {
   margin: 0 8px;
   border-right: 1px solid #231f20;
 }
+footer .brand ul li:first-child:before {
+  content: "";
+  height: 12px;
+  width: 0;
+  margin: 0 8px 0 0;
+  border-right: 1px solid #231f20;
+}
 footer .brand .copyright {
   background-color: #FFFFFF;
   line-height: 38px;
@@ -1119,7 +1125,15 @@ footer .brand .copyright {
     margin-bottom: 11px;
   }
   footer .sponsers {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
     text-align: center;
+    flex-wrap: wrap;
+  }
+  footer .sponsers img {
+    height: 18px;
+    margin-bottom: 21px;
   }
 }
 @media (min-width: 640px) {
@@ -1141,6 +1155,9 @@ footer .brand .copyright {
     align-items: center;
     padding: 0 30px;
   }
+  footer .sponsers img {
+    height: 33px;
+  }
   footer .brand {
     width: 100%;
     position: relative;
@@ -1151,8 +1168,8 @@ footer .brand .copyright {
     display: flex;
     align-items: center;
   }
-  footer .brand ul li {
-    margin: 0 25px;
+  footer .brand ul li:first-child {
+    margin: 0 0 0 25px;
   }
   footer .brand ul a {
     text-decoration: none;

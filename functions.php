@@ -309,6 +309,7 @@ require_once get_template_directory() . '/app/config/variables.php';
 require_once get_template_directory() . '/app/lib/helpers.php';
 require_once get_template_directory() . '/app/lib/shortcode.php';
 require_once get_template_directory() . '/app/lib/header.php';
+require_once get_template_directory() . '/app/lib/footer.php';
 require_once get_template_directory() . '/app/setup/hooks.php';
 require_once get_template_directory() . '/app/setup/navigation.php';
 require_once get_template_directory() . '/app/setup/header.php';
