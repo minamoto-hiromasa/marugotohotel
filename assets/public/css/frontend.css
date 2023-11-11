@@ -1157,6 +1157,7 @@ footer .brand .copyright {
   }
   footer .sponsers img {
     height: 33px;
+    margin: 0 25px;
   }
   footer .brand {
     width: 100%;
