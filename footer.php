@@ -22,10 +22,6 @@
   </a>
 </div>
 <?php endif; ?>
-<?php
-  var_dump(get_post_meta( $page->ID, 'sponser-icon'));
-  var_dump(get_post_meta( $page->ID, 'sponser-link'));
-?>
 <footer id="footer">
   <div class="sponsers">
     <img src="<?php echo get_template_directory_uri()?>/assets/public/images/sponser-ensen-marugoto.jpg" width="84"
@@ -62,6 +58,7 @@
       </li>
       <?php endif ?>
     </ul>
+    <?php getSponserContent(); ?>
     <div class="copyright">Copyright © 2023 沿線まるごと株式会社. All Right Reserved.</div>
   </div>
 </footer>
