@@ -20,7 +20,7 @@ function getSponserContent() {
     if (empty($icon)) {
       continue;
     }
-    if (!empty($links)) {
+    if (!empty($link)) {
       $html .=
         '<a href="' . $link . '" target="_blank"
         rel="noopener noreferrer">';
