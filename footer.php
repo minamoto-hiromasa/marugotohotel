@@ -23,15 +23,7 @@
 </div>
 <?php endif; ?>
 <footer id="footer">
-  <div class="sponsers">
-    <img src="<?php echo get_template_directory_uri()?>/assets/public/images/sponser-ensen-marugoto.jpg" width="84"
-      alt="沿線まるごと株式会社">
-    <img src="<?php echo get_template_directory_uri()?>/assets/public/images/sponser-satoyume.jpg" width="108"
-      alt="さとゆめ 故郷の夢をかたちに">
-    <img src="<?php echo get_template_directory_uri()?>/assets/public/images/sponser-jr.png" width="43" alt="JR東日本">
-    <img src="<?php echo get_template_directory_uri()?>/assets/public/images/sponser-tokyo-adventure-line.jpg"
-      width="50" alt="東京アドベンチャーライン">
-  </div>
+  <?php echo getSponserContent(); ?>
   <div class="brand">
     <ul>
       <?php
@@ -58,7 +50,6 @@
       </li>
       <?php endif ?>
     </ul>
-    <?php getSponserContent(); ?>
     <div class="copyright">Copyright © 2023 沿線まるごと株式会社. All Right Reserved.</div>
   </div>
 </footer>

@@ -1125,7 +1125,15 @@ footer .brand .copyright {
     margin-bottom: 11px;
   }
   footer .sponsers {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
     text-align: center;
+    flex-wrap: wrap;
+  }
+  footer .sponsers img {
+    height: 18px;
+    margin-bottom: 21px;
   }
 }
 @media (min-width: 640px) {
@@ -1146,6 +1154,9 @@ footer .brand .copyright {
     justify-content: flex-end;
     align-items: center;
     padding: 0 30px;
+  }
+  footer .sponsers img {
+    height: 33px;
   }
   footer .brand {
     width: 100%;
