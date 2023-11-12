@@ -10,7 +10,9 @@ gsap.registerPlugin(ScrollToPlugin);
 import {
 	isQueryMatch,
 	setupExpandContent,
+	setupAccordion,
 	setupGallerySlider,
+	staggerList,
 } from './helpers.js';
 
 const slideAnimeDuration = 4500;
@@ -90,6 +92,13 @@ export const controlerPath = {
 				expander.init();
 			}
 
+			const accordionElms =
+				document.getElementsByClassName('accordion-content');
+
+			for (const target of accordionElms) {
+				const accordion = new setupAccordion(target);
+				accordion.init();
+			}
 			// CTA
 			const controller = new ScrollMagic.Controller();
 			const elemCTA = document.getElementById('trigger-cta');
@@ -166,6 +175,11 @@ export const controlerPath = {
 				const control = new swapImageControl(imageGroup);
 				control.init();
 			}
+			const bodyContent = document.getElementById('body-content');
+			const linkGroup =
+				bodyContent.getElementsByClassName('link-list')[0];
+			const linkElm = new staggerList(linkGroup);
+			linkElm.init();
 		},
 	},
 };

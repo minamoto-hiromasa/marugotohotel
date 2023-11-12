@@ -128,6 +128,26 @@ class setupExpandContent {
 	}
 }
 
+class setupAccordion {
+	constructor(elm) {
+		this.target = elm;
+	}
+	init() {
+		const paragraph = this.target.getElementsByClassName(
+			'accordion-paragraph'
+		)[0];
+		const toggler =
+			this.target.getElementsByClassName('accordion-toggler')[0];
+		paragraph.classList.add('hide');
+		toggler.addEventListener('click', (e) => {
+			e.preventDefault();
+			console.log('click');
+			toggler.classList.toggle('opened');
+			paragraph.classList.toggle('hide');
+		});
+	}
+}
+
 class swapImageControl {
 	constructor(imageGroup) {
 		this.imageGroup = imageGroup;
@@ -190,11 +210,65 @@ class MoviePlayer {
 		});
 	}
 }
+
+class staggerList {
+	constructor(group) {
+		this.targetGroup = group;
+	}
+	renderList(num, links) {
+		for (let i = 0; i < links.length; i++) {
+			const elm = links[i];
+			elm.classList.remove('hide');
+		}
+		for (let i = num; i < links.length; i++) {
+			const elm = links[i];
+			console.log(elm);
+			elm.classList.add('hide');
+		}
+	}
+	init() {
+		const isTablet = isQueryMatch();
+		const itemCount = isTablet ? 8 : 4;
+		let currentCount = itemCount;
+		const links = this.targetGroup.getElementsByTagName('li');
+		const itemTotal = links.length;
+		const buttons = this.targetGroup.getElementsByClassName('btn-group')[0];
+		const buttonClose = buttons.getElementsByClassName('btn-close')[0];
+		buttonClose.classList.add('hide');
+		const buttonMore = buttons.getElementsByClassName('btn-more')[0];
+		if (itemCount >= itemTotal) {
+			buttonMore.classList.add('hide');
+		}
+		buttonMore.addEventListener('click', () => {
+			currentCount += itemCount;
+			currentCount = currentCount > itemTotal ? itemTotal : currentCount;
+			this.renderList(currentCount, links);
+			if (currentCount > itemCount) {
+				buttonClose.classList.remove('hide');
+			} else {
+				buttonClose.classList.add('hide');
+			}
+			if (currentCount === itemTotal) {
+				buttonMore.classList.add('hide');
+			} else {
+				buttonMore.classList.remove('hide');
+			}
+		});
+		buttonClose.addEventListener('click', () => {
+			this.renderList(itemCount, links);
+			buttonClose.classList.add('hide');
+			buttonMore.classList.remove('hide');
+		});
+		this.renderList(currentCount, links);
+	}
+}
 export {
 	setupGallerySlider,
 	observeNodes,
 	isQueryMatch,
 	setupExpandContent,
+	setupAccordion,
 	swapImageControl,
 	MoviePlayer,
+	staggerList,
 };

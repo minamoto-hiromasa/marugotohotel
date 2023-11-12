@@ -25,3 +25,17 @@
     transition: transform 0.5s cubic-bezier(0.190, 1.000, 0.220, 1.000);
   }
 }
+@mixin arrowSvg($width, $bgc) {
+  content: "";
+  background-color: $bgc;
+  -webkit-mask: url("../images/toggle-arrow.svg");
+  mask: url("../images/toggle-arrow.svg");
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  vertical-align: middle;
+  position: absolute;
+  transform: rotate(180deg);
+  width: $width;
+  height: calc(#{$width} / 2);
+  top: calc(50% - (#{$width} / 4));
+}

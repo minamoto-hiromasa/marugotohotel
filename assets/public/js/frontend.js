@@ -4034,12 +4034,29 @@ var controlerPath = {
             lines: 5
           });
           expander.init();
-        } // CTA
-
+        }
       } catch (err) {
         _iterator3.e(err);
       } finally {
         _iterator3.f();
+      }
+
+      var accordionElms = document.getElementsByClassName('accordion-content');
+
+      var _iterator4 = _createForOfIteratorHelper(accordionElms),
+          _step4;
+
+      try {
+        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+          var _target = _step4.value;
+          var accordion = new _helpers__WEBPACK_IMPORTED_MODULE_3__.setupAccordion(_target);
+          accordion.init();
+        } // CTA
+
+      } catch (err) {
+        _iterator4.e(err);
+      } finally {
+        _iterator4.f();
       }
 
       var controller = new (scrollmagic__WEBPACK_IMPORTED_MODULE_1___default().Controller)();
@@ -4079,12 +4096,12 @@ var controlerPath = {
       var menuItems = mainMenu.getElementsByTagName('a'); // Stick title on desktop only
 
       if (menuItems.length > 0 && (0,_helpers__WEBPACK_IMPORTED_MODULE_3__.isQueryMatch)()) {
-        var _iterator4 = _createForOfIteratorHelper(menuItems),
-            _step4;
+        var _iterator5 = _createForOfIteratorHelper(menuItems),
+            _step5;
 
         try {
           var _loop3 = function _loop3() {
-            var element = _step4.value;
+            var element = _step5.value;
             var menuItem = element;
             var triggerTarget = document.getElementById(menuItem.className.replace('menu-', ''));
 
@@ -4096,31 +4113,31 @@ var controlerPath = {
               triggerElement: triggerTarget,
               triggerHook: 0.5
             }).on('enter leave', function () {
-              var _iterator5 = _createForOfIteratorHelper(menuItems),
-                  _step5;
+              var _iterator6 = _createForOfIteratorHelper(menuItems),
+                  _step6;
 
               try {
-                for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-                  var item = _step5.value;
+                for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+                  var item = _step6.value;
                   item.classList.remove('im-here');
                 }
               } catch (err) {
-                _iterator5.e(err);
+                _iterator6.e(err);
               } finally {
-                _iterator5.f();
+                _iterator6.f();
               }
 
               menuItem.classList.add('im-here');
             }).addTo(smController);
           };
 
-          for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+          for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
             _loop3();
           }
         } catch (err) {
-          _iterator4.e(err);
+          _iterator5.e(err);
         } finally {
-          _iterator4.f();
+          _iterator5.f();
         }
       } else {
         console.info('メニューが登録されていません');
@@ -4131,20 +4148,25 @@ var controlerPath = {
     init: function init() {
       var swapImageGroups = document.getElementsByClassName('swap-images');
 
-      var _iterator6 = _createForOfIteratorHelper(swapImageGroups),
-          _step6;
+      var _iterator7 = _createForOfIteratorHelper(swapImageGroups),
+          _step7;
 
       try {
-        for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
-          var imageGroup = _step6.value;
+        for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+          var imageGroup = _step7.value;
           var control = new _helpers__WEBPACK_IMPORTED_MODULE_3__.swapImageControl(imageGroup);
           control.init();
         }
       } catch (err) {
-        _iterator6.e(err);
+        _iterator7.e(err);
       } finally {
-        _iterator6.f();
+        _iterator7.f();
       }
+
+      var bodyContent = document.getElementById('body-content');
+      var linkGroup = bodyContent.getElementsByClassName('link-list')[0];
+      var linkElm = new _helpers__WEBPACK_IMPORTED_MODULE_3__.staggerList(linkGroup);
+      linkElm.init();
     }
   }
 };
@@ -4209,8 +4231,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "observeNodes": () => (/* binding */ observeNodes),
 /* harmony export */   "isQueryMatch": () => (/* binding */ isQueryMatch),
 /* harmony export */   "setupExpandContent": () => (/* binding */ setupExpandContent),
+/* harmony export */   "setupAccordion": () => (/* binding */ setupAccordion),
 /* harmony export */   "swapImageControl": () => (/* binding */ swapImageControl),
-/* harmony export */   "MoviePlayer": () => (/* binding */ MoviePlayer)
+/* harmony export */   "MoviePlayer": () => (/* binding */ MoviePlayer),
+/* harmony export */   "staggerList": () => (/* binding */ staggerList)
 /* harmony export */ });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -4366,6 +4390,31 @@ var setupExpandContent = /*#__PURE__*/function () {
   return setupExpandContent;
 }();
 
+var setupAccordion = /*#__PURE__*/function () {
+  function setupAccordion(elm) {
+    _classCallCheck(this, setupAccordion);
+
+    this.target = elm;
+  }
+
+  _createClass(setupAccordion, [{
+    key: "init",
+    value: function init() {
+      var paragraph = this.target.getElementsByClassName('accordion-paragraph')[0];
+      var toggler = this.target.getElementsByClassName('accordion-toggler')[0];
+      paragraph.classList.add('hide');
+      toggler.addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log('click');
+        toggler.classList.toggle('opened');
+        paragraph.classList.toggle('hide');
+      });
+    }
+  }]);
+
+  return setupAccordion;
+}();
+
 var swapImageControl = /*#__PURE__*/function () {
   function swapImageControl(imageGroup) {
     _classCallCheck(this, swapImageControl);
@@ -4448,6 +4497,78 @@ var MoviePlayer = /*#__PURE__*/function () {
   }]);
 
   return MoviePlayer;
+}();
+
+var staggerList = /*#__PURE__*/function () {
+  function staggerList(group) {
+    _classCallCheck(this, staggerList);
+
+    this.targetGroup = group;
+  }
+
+  _createClass(staggerList, [{
+    key: "renderList",
+    value: function renderList(num, links) {
+      for (var i = 0; i < links.length; i++) {
+        var elm = links[i];
+        elm.classList.remove('hide');
+      }
+
+      for (var _i = num; _i < links.length; _i++) {
+        var _elm = links[_i];
+        console.log(_elm);
+
+        _elm.classList.add('hide');
+      }
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      var _this2 = this;
+
+      var isTablet = isQueryMatch();
+      var itemCount = isTablet ? 8 : 4;
+      var currentCount = itemCount;
+      var links = this.targetGroup.getElementsByTagName('li');
+      var itemTotal = links.length;
+      var buttons = this.targetGroup.getElementsByClassName('btn-group')[0];
+      var buttonClose = buttons.getElementsByClassName('btn-close')[0];
+      buttonClose.classList.add('hide');
+      var buttonMore = buttons.getElementsByClassName('btn-more')[0];
+
+      if (itemCount >= itemTotal) {
+        buttonMore.classList.add('hide');
+      }
+
+      buttonMore.addEventListener('click', function () {
+        currentCount += itemCount;
+        currentCount = currentCount > itemTotal ? itemTotal : currentCount;
+
+        _this2.renderList(currentCount, links);
+
+        if (currentCount > itemCount) {
+          buttonClose.classList.remove('hide');
+        } else {
+          buttonClose.classList.add('hide');
+        }
+
+        if (currentCount === itemTotal) {
+          buttonMore.classList.add('hide');
+        } else {
+          buttonMore.classList.remove('hide');
+        }
+      });
+      buttonClose.addEventListener('click', function () {
+        _this2.renderList(itemCount, links);
+
+        buttonClose.classList.add('hide');
+        buttonMore.classList.remove('hide');
+      });
+      this.renderList(currentCount, links);
+    }
+  }]);
+
+  return staggerList;
 }();
 
 
@@ -10901,9 +11022,12 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
 /*!***************************************!*\
   !*** ./assets/src/sass/frontend.scss ***!
   \***************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Undefined variable.\n   ╷\n70 │       background-color: rgb($color-green-rgb, 0.5);\n   │                             ^^^^^^^^^^^^^^^^\n   ╵\n  assets/src/sass/pages/dmo.scss 70:29  @import\n  assets/src/sass/frontend.scss 38:9    root stylesheet\n    at processResult (/Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/webpack/lib/NormalModule.js:701:19)\n    at /Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/webpack/lib/NormalModule.js:807:5\n    at /Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/loader-runner/lib/LoaderRunner.js:399:11\n    at /Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/loader-runner/lib/LoaderRunner.js:251:18\n    at context.callback (/Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at /Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/sass-loader/dist/index.js:62:7\n    at Function.call$2 (/Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/sass/sass.dart.js:93650:16)\n    at _render_closure1.call$2 (/Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/sass/sass.dart.js:82010:12)\n    at _RootZone.runBinary$3$3 (/Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/sass/sass.dart.js:27550:18)\n    at _FutureListener.handleError$1 (/Users/tkc/Sites/marugotohotel/wordpress/wp-content/themes/Marugotohotel/node_modules/sass/sass.dart.js:26099:19)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
