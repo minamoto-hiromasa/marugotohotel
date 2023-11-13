@@ -61,10 +61,11 @@ footer {
       display: flex;
       justify-content: space-between;
       padding: 0 30px;
+      margin-bottom: $footer-height-mobile;
       text-align: center;
       flex-wrap: wrap;
       img {
-        height: 18px;
+        height: 21px;
         margin-bottom: 21px;
       }
     }
@@ -88,6 +89,7 @@ footer {
       justify-content: flex-end;
       align-items: center;
       padding: 0 30px;
+      margin-bottom: $footer-height-pc;
       img {
         height: 33px;
         margin: 0 25px;

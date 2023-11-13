@@ -1128,11 +1128,12 @@ footer .brand .copyright {
     display: flex;
     justify-content: space-between;
     padding: 0 30px;
+    margin-bottom: 88px;
     text-align: center;
     flex-wrap: wrap;
   }
   footer .sponsers img {
-    height: 18px;
+    height: 21px;
     margin-bottom: 21px;
   }
 }
@@ -1154,6 +1155,7 @@ footer .brand .copyright {
     justify-content: flex-end;
     align-items: center;
     padding: 0 30px;
+    margin-bottom: 125px;
   }
   footer .sponsers img {
     height: 33px;
