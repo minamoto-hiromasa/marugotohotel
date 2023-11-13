@@ -1128,7 +1128,6 @@ footer .brand .copyright {
     display: flex;
     justify-content: space-between;
     padding: 0 30px;
-    margin-bottom: 88px;
     text-align: center;
     flex-wrap: wrap;
   }
@@ -1155,7 +1154,6 @@ footer .brand .copyright {
     justify-content: flex-end;
     align-items: center;
     padding: 0 30px;
-    margin-bottom: 125px;
   }
   footer .sponsers img {
     height: 33px;
@@ -1209,6 +1207,9 @@ footer .brand .copyright {
 #cta-reservation a:hover {
   background-color: rgba(0, 104, 56, 0.6);
 }
+#cta-reservation + footer .sponsers {
+  margin-bottom: 125px;
+}
 #cta-reservation .pencil {
   position: relative;
   margin-top: 12px;
@@ -1242,6 +1243,9 @@ footer .brand .copyright {
 @media (max-width: 639px) {
   #cta-reservation {
     height: 88px;
+  }
+  #cta-reservation + footer .sponsers {
+    margin-bottom: 88px;
   }
   #cta-reservation .book_en {
     margin-bottom: 3px;
