@@ -392,7 +392,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-weight: 700;
 }
 
-.font-title, .page-dmo .accordion-content .accordion-toggler dt:last-child {
+.font-title, .page-dmo .accordion-content .accordion-toggler dt:last-child, .page-dmo .btn-round a, .page-dmo .content-title {
   font-family: "Shippori Mincho", serif;
   font-weight: 500;
 }
@@ -402,7 +402,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-weight: 400;
 }
 
-.font-title-bold, .page-dmo .accordion-content .accordion-toggler dt:first-child, .page-dmo .content-title h5, .page-dmo .content-title h4 {
+.font-title-bold, .page-dmo .accordion-content .accordion-toggler dt:first-child, .page-dmo .btn-double-arrow, .page-dmo .content-title h5, .page-dmo .content-title h4 {
   font-family: "Shippori Mincho", serif;
   font-weight: 800;
 }
@@ -1765,11 +1765,6 @@ footer .brand .copyright {
   display: flex;
   justify-content: center;
 }
-.page-dmo .btn-round > div {
-  border: 1px solid white;
-  border-radius: 6px;
-  margin: 4px;
-}
 .page-dmo .btn-round a {
   display: block;
   transition: background-color 0.3s linear;
@@ -1938,6 +1933,13 @@ footer .brand .copyright {
   }
   .page-dmo .link-list li:nth-child(4n) {
     margin-right: 0;
+  }
+  .page-dmo .btn-round {
+    margin-top: -40px;
+    justify-content: flex-end;
+    position: relative;
+    right: 13px;
+    top: -10px;
   }
   .page-dmo .btn-group {
     width: 620px;

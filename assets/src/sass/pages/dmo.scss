@@ -16,6 +16,7 @@
     border-bottom: 1px solid $color-border-gray;
     padding: 12px 0;
     margin-bottom: 18px;
+    @extend .font-title;
     &.center {
       > div {
         justify-content: center;
@@ -96,12 +97,8 @@
   .btn-round {
     display: flex;
     justify-content: center;
-    > div {
-      border: 1px solid white;
-      border-radius: 6px;
-      margin: 4px;
-    }
     a {
+      @extend .font-title;
       display: block;
       transition: background-color 0.3s linear;
       background-color: $color-green-dark;
@@ -136,6 +133,7 @@
     }
   }
   .btn-double-arrow {
+    @extend .font-title-bold;
     border: 1px solid $color-border-gray;
     border-radius: 8px;
     padding: 3px;
@@ -269,6 +267,13 @@
           margin-right: 0;
         }
       }
+    }
+    .btn-round {
+      margin-top: -40px;
+      justify-content: flex-end;
+      position: relative;
+      right: 13px;
+      top: -10px;
     }
     .btn-group {
       width: 620px;
