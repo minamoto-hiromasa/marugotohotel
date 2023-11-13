@@ -210,7 +210,7 @@ function wp_bootstrap_starter_scripts() {
         wp_enqueue_style( 'wp-bootstrap-starter-default', get_template_directory_uri() . '/inc/assets/css/presets/color-scheme/blue.css', false, '' );
     }*/
     wp_enqueue_style( 'noto-serif-japanese', 'https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap' );
-    wp_enqueue_style( 'frontend', get_template_directory_uri() . '/assets/public/css/frontend.css', array(), '20231103' );
+    wp_enqueue_style( 'frontend', get_template_directory_uri() . '/assets/public/css/frontend.css', array(), '20231113' );
 
 	wp_enqueue_script('jquery');
 
@@ -232,7 +232,7 @@ function wp_bootstrap_starter_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
     }
-    wp_enqueue_script( 'frontend', get_template_directory_uri() . '/assets/public/js/frontend.js', array(), '20231103', true );
+    wp_enqueue_script( 'frontend', get_template_directory_uri() . '/assets/public/js/frontend.js', array(), '20231113', true );
     wp_enqueue_script( 'ryumin', '//code.typesquare.com/static/ZDbTe4IzCko%253D/ts106f.js', array(), '20211118', true );
 }
 add_action( 'wp_enqueue_scripts', 'wp_bootstrap_starter_scripts' );
