@@ -842,7 +842,7 @@ aside.side-nav nav .nav-inner > *:not(.tag-new-wrap) {
     height: 0 !important;
     z-index: 110;
     background-color: rgba(255, 255, 255, 0.9);
-    overflow-y: scroll;
+    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -928,7 +928,7 @@ aside.side-nav nav .nav-inner .has-dash:before {
 }
 @media (min-width: 640px) {
   aside.side-nav.up nav {
-    padding-bottom: 170px;
+    padding-bottom: 300px;
   }
   aside.side-nav .side-stick {
     position: fixed;
