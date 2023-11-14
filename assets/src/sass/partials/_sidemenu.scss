@@ -217,11 +217,12 @@ aside.side-nav {
     }
   }
   @include breakpoint(medium) {
-    &.up {
-      nav {
-        padding-bottom: 300px;
-      }
-    }
+    z-index: 100;
+    // &.up {
+    //   nav {
+    //     padding-bottom: 300px;
+    //   }
+    // }
     .side-stick {
       position: fixed;
       height: 100vh;
@@ -230,6 +231,7 @@ aside.side-nav {
       align-items: flex-end;
       justify-content: flex-end;
       z-index: 1;
+      background-color: rgba(255,255,255,0.8);
     }
     nav {
       margin-top: 200px;
