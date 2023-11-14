@@ -947,7 +947,7 @@ aside.side-nav nav .nav-inner .has-dash:before {
     width: 100%;
     padding-left: 60px;
     padding-right: 96px;
-    padding-bottom: 170px;
+    padding-bottom: 100px;
     transition: padding 1s cubic-bezier(0.19, 1, 0.22, 1);
   }
   aside.side-nav nav .active,
