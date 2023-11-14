@@ -928,7 +928,7 @@ aside.side-nav nav .nav-inner .has-dash:before {
 }
 @media (min-width: 640px) {
   aside.side-nav {
-    z-index: 100;
+    z-index: 110;
   }
   aside.side-nav .side-stick {
     position: fixed;
