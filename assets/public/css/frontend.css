@@ -939,7 +939,6 @@ aside.side-nav nav .nav-inner .has-dash:before {
     align-items: flex-end;
     justify-content: flex-end;
     z-index: 1;
-    background-color: rgba(255, 255, 255, 0.8);
   }
   aside.side-nav nav {
     margin-top: 200px;
