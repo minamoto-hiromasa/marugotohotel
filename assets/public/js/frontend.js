@@ -3981,9 +3981,11 @@ var controlerPath = {
       var sideNav = document.getElementsByClassName('side-nav')[0];
       var sideNavLinks = sideNav.getElementsByTagName('a');
       var burger = document.getElementsByClassName('burger')[0];
+      var bodyContent = document.getElementById('body-content');
       toggleMenu.addEventListener('click', function () {
         sideNav.classList.toggle('show');
         burger.classList.toggle('close');
+        bodyContent.classList.toggle('locked');
       });
 
       var _iterator2 = _createForOfIteratorHelper(sideNavLinks),
@@ -3996,6 +3998,7 @@ var controlerPath = {
             e.preventDefault();
             sideNav.classList.remove('show');
             burger.classList.remove('close');
+            bodyContent.classList.remove('locked');
 
             if (element.attributes.href.value.indexOf('#') === 0) {
               var targetElem = document.getElementById(element.attributes.href.value.replace('#', ''));

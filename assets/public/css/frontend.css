@@ -595,6 +595,13 @@ article .title.title-indent:before {
   }
 }
 
+@media (max-width: 639px) {
+  #body-content.locked {
+    overflow: hidden;
+    height: 100%;
+    z-index: 1000;
+  }
+}
 .orbit button[class^=orbit]:before {
   display: block;
   content: "";
