@@ -922,7 +922,7 @@ aside.side-nav nav .nav-inner .has-dash:before {
   }
   aside.side-nav.show {
     height: 100vh !important;
-    padding-top: 114px;
+    padding-top: 84px;
     padding-bottom: 43px;
   }
 }
