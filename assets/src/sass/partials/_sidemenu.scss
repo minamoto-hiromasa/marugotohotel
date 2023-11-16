@@ -214,6 +214,7 @@ aside.side-nav {
       height: 100vh!important;
       padding-top: 84px;
       padding-bottom: 43px;
+      overflow-y: scroll;
     }
   }
   @include breakpoint(medium) {

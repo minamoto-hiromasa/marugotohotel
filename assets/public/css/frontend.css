@@ -924,6 +924,7 @@ aside.side-nav nav .nav-inner .has-dash:before {
     height: 100vh !important;
     padding-top: 84px;
     padding-bottom: 43px;
+    overflow-y: scroll;
   }
 }
 @media (min-width: 640px) {
