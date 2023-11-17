@@ -183,3 +183,12 @@ article {
     }
   }
 }
+@include breakpoint(small only) {
+  #body-content {
+    &.locked {
+      overflow: hidden;
+      height: 100%;
+      z-index: 1000;
+    }
+  }
+}

@@ -60,15 +60,18 @@ export const controlerPath = {
 			const sideNav = document.getElementsByClassName('side-nav')[0];
 			const sideNavLinks = sideNav.getElementsByTagName('a');
 			const burger = document.getElementsByClassName('burger')[0];
+			const bodyContent = document.getElementById('body-content');
 			toggleMenu.addEventListener('click', function () {
 				sideNav.classList.toggle('show');
 				burger.classList.toggle('close');
+				bodyContent.classList.toggle('locked');
 			});
 			for (const element of sideNavLinks) {
 				element.addEventListener('click', function (e) {
 					e.preventDefault();
 					sideNav.classList.remove('show');
 					burger.classList.remove('close');
+					bodyContent.classList.remove('locked');
 					if (element.attributes.href.value.indexOf('#') === 0) {
 						const targetElem = document.getElementById(
 							element.attributes.href.value.replace('#', '')

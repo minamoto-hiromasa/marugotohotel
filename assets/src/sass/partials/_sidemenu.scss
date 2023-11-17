@@ -212,31 +212,35 @@ aside.side-nav {
     }
     &.show {
       height: 100vh!important;
-      padding-top: 114px;
-      padding-bottom: 43px;
+      padding-top: 84px;
+      padding-bottom: 143px;
+      overflow-y: scroll;
     }
   }
   @include breakpoint(medium) {
-    &.up {
-      nav {
-        padding-bottom: 170px;
-      }
-    }
+    z-index: 110;
+    // &.up {
+    //   nav {
+    //     padding-bottom: 300px;
+    //   }
+    // }
     .side-stick {
       position: fixed;
       height: 100vh;
+      width: 20%;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       justify-content: flex-end;
       z-index: 1;
+      // background-color: rgba(255,255,255,0.8);
     }
     nav {
       margin-top: 200px;
       overflow: auto;
       width: 100%;
       padding-left: 60px;
-      padding-right: 30px;
+      padding-right: 96px;
       padding-bottom: 100px;
       transition: padding 1s cubic-bezier(0.190, 1.000, 0.220, 1.000);
       .active,

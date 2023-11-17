@@ -605,6 +605,13 @@ article .title.title-indent:before {
   }
 }
 
+@media (max-width: 639px) {
+  #body-content.locked {
+    overflow: hidden;
+    height: 100%;
+    z-index: 1000;
+  }
+}
 .orbit button[class^=orbit]:before {
   display: block;
   content: "";
@@ -932,17 +939,19 @@ aside.side-nav nav .nav-inner .has-dash:before {
   }
   aside.side-nav.show {
     height: 100vh !important;
-    padding-top: 114px;
-    padding-bottom: 43px;
+    padding-top: 84px;
+    padding-bottom: 143px;
+    overflow-y: scroll;
   }
 }
 @media (min-width: 640px) {
-  aside.side-nav.up nav {
-    padding-bottom: 170px;
+  aside.side-nav {
+    z-index: 110;
   }
   aside.side-nav .side-stick {
     position: fixed;
     height: 100vh;
+    width: 20%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -954,7 +963,7 @@ aside.side-nav nav .nav-inner .has-dash:before {
     overflow: auto;
     width: 100%;
     padding-left: 60px;
-    padding-right: 30px;
+    padding-right: 96px;
     padding-bottom: 100px;
     transition: padding 1s cubic-bezier(0.19, 1, 0.22, 1);
   }
@@ -1096,12 +1105,11 @@ footer .brand {
   font-size: 10px;
 }
 footer .brand ul {
-  padding-left: 21px;
+  padding: 20px;
   margin: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 }
 footer .brand ul li {
   display: flex;
@@ -1117,6 +1125,13 @@ footer .brand ul li:after {
   margin: 0 8px;
   border-right: 1px solid #231f20;
 }
+footer .brand ul li:first-child:before {
+  content: "";
+  height: 12px;
+  width: 0;
+  margin: 0 8px 0 0;
+  border-right: 1px solid #231f20;
+}
 footer .brand .copyright {
   background-color: #FFFFFF;
   line-height: 38px;
@@ -1129,7 +1144,15 @@ footer .brand .copyright {
     margin-bottom: 11px;
   }
   footer .sponsers {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
     text-align: center;
+    flex-wrap: wrap;
+  }
+  footer .sponsers img {
+    height: 21px;
+    margin-bottom: 21px;
   }
 }
 @media (min-width: 640px) {
@@ -1151,6 +1174,10 @@ footer .brand .copyright {
     align-items: center;
     padding: 0 30px;
   }
+  footer .sponsers img {
+    height: 33px;
+    margin: 0 25px;
+  }
   footer .brand {
     width: 100%;
     position: relative;
@@ -1161,8 +1188,8 @@ footer .brand .copyright {
     display: flex;
     align-items: center;
   }
-  footer .brand ul li {
-    margin: 0 25px;
+  footer .brand ul li:first-child {
+    margin: 0 0 0 25px;
   }
   footer .brand ul a {
     text-decoration: none;
@@ -1199,6 +1226,9 @@ footer .brand .copyright {
 #cta-reservation a:hover {
   background-color: rgba(0, 104, 56, 0.6);
 }
+#cta-reservation + footer .sponsers {
+  margin-bottom: 125px;
+}
 #cta-reservation .pencil {
   position: relative;
   margin-top: 12px;
@@ -1232,6 +1262,9 @@ footer .brand .copyright {
 @media (max-width: 639px) {
   #cta-reservation {
     height: 88px;
+  }
+  #cta-reservation + footer .sponsers {
+    margin-bottom: 88px;
   }
   #cta-reservation .book_en {
     margin-bottom: 3px;
