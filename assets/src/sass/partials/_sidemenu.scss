@@ -228,6 +228,7 @@ aside.side-nav {
       position: fixed;
       height: 100vh;
       width: 20%;
+      min-width: 300px;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
