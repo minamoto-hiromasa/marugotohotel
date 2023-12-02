@@ -1724,17 +1724,16 @@ footer .brand .copyright {
 .page-dmo .content-title h4 {
   margin: 0;
   font-size: 24px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 .page-dmo .content-title h5 {
   font-size: 20px;
   margin: 0;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 .page-dmo .content-title p {
   margin: 0;
   font-size: 12px;
-  letter-spacing: 1px;
 }
 .page-dmo .link-list {
   width: 300px;

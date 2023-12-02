@@ -30,18 +30,17 @@
       @extend .font-title-bold;
       margin: 0;
       font-size: 24px;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
     }
     h5 {
       @extend .font-title-bold;
       font-size: 20px;
       margin: 0;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
     }
     p {
       margin: 0;
       font-size: 12px;
-      letter-spacing: 1px;
     }
   }
   .link-list {
