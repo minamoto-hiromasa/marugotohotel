@@ -29,7 +29,9 @@
         isPageAnchor($item -> url)
       ) ? home_url( '/' ) : "";
       $navHtml .=
-        '<a class="' . $setImHereStyle . '" href="' . $mainUrlPrefix . $item -> url . '"><span>' . $item -> title . '</span></a>';
+        '<a class="' . $setImHereStyle . '" href="' . $mainUrlPrefix . $item -> url . '">
+        <span>' . $item -> title . '</span>
+        </a>';
     }
     $navHtml .= '</div>';
 
@@ -37,26 +39,31 @@
     $campaginMenu = wp_get_nav_menu_items($config['menuCampaign']);
     $campaignPageUrl = get_permalink( get_page_by_path($config['campaignPageSlug']));
     // 最初のキャンペーンメニューは特殊なスタイル
-    $campaignFirstMenu = array_shift($campaginMenu);
-    $campaignUrlPrefix = (!is_page($config['campaignPageSlug']) && isPageAnchor($campaignFirstMenu -> url))
-      ? $campaignPageUrl : "";
-    $campaginNavHtml = '<div class="nav-inner">';
-    $campaginNavHtml .= '<a href="' . $campaignUrlPrefix . $campaignFirstMenu -> url . '" class="tag-new-wrap">';
-    $campaginNavHtml .= '<span class="tag-new-inner">';
-    $campaginNavHtml .= '<span class="tag-new">NEW!</span>';
-    $campaginNavHtml .= '<b>' . $campaignFirstMenu -> title . '</b>';
-    $campaginNavHtml .= '</span>';
-    $campaginNavHtml .= '</a>';
+    if($campaginMenu) {
+      $campaignFirstMenu = array_shift($campaginMenu);
+      $campaignUrlPrefix = (!is_page($config['campaignPageSlug']) && isPageAnchor($campaignFirstMenu -> url))
+        ? $campaignPageUrl : "";
+      $campaginNavHtml = '<div class="nav-inner">';
+      $campaginNavHtml .= '<a href="' . $campaignUrlPrefix . $campaignFirstMenu -> url . '" class="tag-new-wrap">';
+      $campaginNavHtml .= '<span class="tag-new-inner">';
+      $campaginNavHtml .= '<span class="tag-new">NEW!</span>';
+      $campaginNavHtml .= '<b>' . $campaignFirstMenu -> title . '</b>';
+      $campaginNavHtml .= '</span>';
+      $campaginNavHtml .= '</a>';
 
-    // ２つ目以降のキャンペーンメニュー
-    foreach($campaginMenu as $item){
-      $campaignUrlPrefix =
-        (!is_page($config['campaignPageSlug']) && isPageAnchor($item -> url)) ? $campaignPageUrl : "";
-      $campaginNavHtml .=
-        '<a class="' . $item -> classes[0] . '"
-        href="' . $campaignUrlPrefix . $item -> url . '"><span>' . $item -> title . '</span></a>';
+      // ２つ目以降のキャンペーンメニュー
+      foreach($campaginMenu as $item){
+        $campaignUrlPrefix =
+          (!is_page($config['campaignPageSlug']) && isPageAnchor($item -> url)) ? $campaignPageUrl : "";
+        $campaginNavHtml .=
+          '<a class="' . $item -> classes[0] . '"
+          href="' . $campaignUrlPrefix . $item -> url . '"><span>' . $item -> title . '</span></a>';
+      }
+      $campaginNavHtml .= '</div>';
+    } else {
+      $campaginNavHtml = '';
     }
-    $campaginNavHtml .= '</div>';
+
 
     // アイキャッチ画像取得
     $eyeCatchImage = get_the_post_thumbnail_url();
@@ -67,7 +74,8 @@
     $acfPosterPC = is_null($post) ? "" : get_field('poster-pc', $post->ID);
     $acfMovieMobile = is_null($post) ? "" : get_field('movie-mobile', $post->ID);
     $acfPosterMobile = is_null($post) ? "" : get_field('poster-mobile', $post->ID);
-    $isMovieAvailable = !empty($acfMoviePC) && !empty($acfMovieMobile);
+    $isMovieAvailable =
+      !empty($acfMoviePC) && !empty($acfMovieMobile) && !empty($acfPosterPC) && !empty($acfPosterMobile);
     if($isMovieAvailable) {
       $movieHtml = '
         <div id="key-movie" class="key-movie play">
